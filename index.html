@@ -1,0 +1,762 @@
+                if (target) {
+                                        target.scrollIntoView({
+                                                                behavior: '
+                                                                <p style="border-radius: 8px; text-align: center; font-size: 12px; color: #fff; margin-top: 16px;position: fixed; left: 8px; bottom: 8px; z-index: 10; background: rgba(0, 0, 0, 0.8); padding: 4px 8px;">Made with <img src="https://enzostvs-deepsite.hf.space/logo.svg" alt="DeepSite Logo" style="width: 16px; height: 16px; vertical-align: middle;display:inline-block;margin-right:3px;filter:brightness(0) invert(1);"><a href="https://enzostvs-deepsite.hf.space" style="color: #fff;text-decoration: underline;" target="_blank" >DeepSite</a> - 🧬 <a href="https://enzostvs-deepsite.hf.space?remix=Emman-Code/emman-portfolio" style="color: #fff;text-decoration: underline;" target="_blank" >Remix</a></p></body>
+target.scrollIntoView({
+                        behavior: '
+</body>
+</html><!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emmanuel Joshua Y - Data Science Intern Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Open+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --navy: #0D1B2A;
+            --charcoal: #1C1C1C;
+            --teal: #00B4D8;
+            --electric-blue: #1E90FF;
+            --silver: #E0E0E0;
+            --white-smoke: #F5F5F5;
+        }
+        
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background: var(--navy);
+            color: var(--white-smoke);
+            overflow-x: hidden;
+        }
+        
+        .font-montserrat {
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        .tech-grid {
+            background-image: 
+                linear-gradient(rgba(0, 180, 216, 0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 180, 216, 0.1) 1px, transparent 1px);
+            background-size: 30px 30px;
+        }
+        
+        .glow-effect {
+            box-shadow: 0 0 20px rgba(0, 180, 216, 0.3);
+            transition: box-shadow 0.3s ease;
+        }
+        
+        .glow-effect:hover {
+            box-shadow: 0 0 30px rgba(0, 180, 216, 0.6);
+        }
+        
+        .timeline-line {
+            background: linear-gradient(to bottom, var(--teal), var(--electric-blue));
+        }
+        
+        .skill-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .skill-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.08);
+            border-color: var(--teal);
+        }
+        
+        .project-card {
+            background: linear-gradient(135deg, rgba(0, 180, 216, 0.1), rgba(30, 144, 255, 0.1));
+            border: 1px solid rgba(0, 180, 216, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .project-card:hover {
+            transform: scale(1.02);
+            border-color: var(--teal);
+        }
+        
+        .certificate-card {
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .certificate-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 180, 216, 0.2);
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, var(--teal), var(--electric-blue));
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0, 180, 216, 0.4);
+        }
+        
+        .form-input {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .form-input:focus {
+            border-color: var(--teal);
+            box-shadow: 0 0 10px rgba(0, 180, 216, 0.3);
+        }
+        
+        .nav-link {
+            position: relative;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--teal);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .typing-effect {
+            border-right: 2px solid var(--teal);
+            animation: blink 1s infinite;
+        }
+        
+        @keyframes blink {
+            0%, 50% { border-color: var(--teal); }
+            51%, 100% { border-color: transparent; }
+        }
+        
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        
+        .slide-in-left {
+            opacity: 0;
+            transform: translateX(-50px);
+        }
+        
+        .slide-in-right {
+            opacity: 0;
+            transform: translateX(50px);
+        }
+        
+        .scale-in {
+            opacity: 0;
+            transform: scale(0.9);
+        }
+        
+        /* Mobile menu styles */
+        .mobile-menu {
+            transform: translateX(-100%);
+            transition: transform 0.3s ease;
+        }
+        
+        .mobile-menu.active {
+            transform: translateX(0);
+        }
+        
+        /* Particle animation */
+        .particle {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: var(--teal);
+            border-radius: 50%;
+            animation: float 6s infinite linear;
+            z-index: 0;
+        }
+        
+        @keyframes float {
+            0% {
+                transform: translateY(calc(100vh + 100px)) translateX(0);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100px) translateX(100px);
+                opacity: 0;
+            }
+        }
+
+        .tech-grid {
+            position: relative;
+            z-index: 1;
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-white">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-gray-900/90 backdrop-blur-md z-50 border-b border-gray-700">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="text-xl font-montserrat font-bold text-teal-400">Emmanuel Joshua Y</div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="nav-link text-gray-300 hover:text-teal-400">Home</a>
+                    <a href="#about" class="nav-link text-gray-300 hover:text-teal-400">About</a>
+                    <a href="#experience" class="nav-link text-gray-300 hover:text-teal-400">Experience</a>
+                    <a href="#skills" class="nav-link text-gray-300 hover:text-teal-400">Skills</a>
+                    <a href="#projects" class="nav-link text-gray-300 hover:text-teal-400">Projects</a>
+                    <a href="#certificates" class="nav-link text-gray-300 hover:text-teal-400">Certificates</a>
+                    <a href="#contact" class="nav-link text-gray-300 hover:text-teal-400">Contact</a>
+                </div>
+                <button class="md:hidden text-gray-300" id="mobile-menu-btn">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div class="mobile-menu fixed inset-0 bg-gray-900 z-40 md:hidden" id="mobile-menu">
+            <div class="flex flex-col items-center justify-center h-full space-y-8">
+                <a href="#home" class="text-2xl text-gray-300 hover:text-teal-400 mobile-link">Home</a>
+                <a href="#about" class="text-2xl text-gray-300 hover:text-teal-400 mobile-link">About</a>
+                <a href="#experience" class="text-2xl text-gray-300 hover:text-teal-400 mobile-link">Experience</a>
+                <a href="#skills" class="text-2xl text-gray-300 hover:text-teal-400 mobile-link">Skills</a>
+                <a href="#projects" class="text-2xl text-gray-300 hover:text-teal-400 mobile-link">Projects</a>
+                <a href="#contact" class="text-2xl text-gray-300 hover:text-teal-400 mobile-link">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex items-center justify-center relative overflow-hidden tech-grid">
+        <div class="particles" id="particles"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <img src="https://i.postimg.cc/BvFKj1dD/IMG-20250718-003331.png" alt="Emmanuel Joshua Y" class="w-40 h-40 rounded-full mx-auto mb-8 border-4 border-teal-400 glow-effect object-cover">
+            <h1 class="text-5xl md:text-7xl font-montserrat font-bold mb-4 fade-in">
+                Emmanuel Joshua Y
+            </h1>
+            <p class="text-2xl md:text-4xl text-teal-400 mb-4 fade-in">
+                <span class="typing-effect" id="typing-text"></span>
+            </p>
+            <p class="text-xl text-gray-300 mb-8 fade-in">
+                Data Scientist | B.Tech AI/ML
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4 fade-in">
+                <a href="#projects" class="btn-primary px-8 py-3 rounded-full font-semibold text-white">View Projects</a>
+                <a href="#contact" class="border-2 border-teal-400 px-8 py-3 rounded-full font-semibold text-teal-400 hover:bg-teal-400 hover:text-gray-900 transition-all duration-300">Get in Touch</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-4xl font-montserrat font-bold text-center mb-12 fade-in">About Me</h2>
+            <div class="grid md:grid-cols-2 gap-12">
+                <div class="slide-in-left">
+                    <p class="text-lg text-gray-300 mb-6">
+                        Passionate about leveraging AI and data science to create meaningful impact. Currently pursuing B.Tech in AI & ML at SNS College of Technology, I'm dedicated to transforming complex data into actionable insights that drive real-world solutions.
+                    </p>
+                    <p class="text-lg text-gray-300 mb-6">
+                        My journey in data science is guided by strong values and faith, believing that technology should serve humanity's greater good. As I continue to grow in this field, I remain committed to using my skills responsibly and ethically.
+                    </p>
+                    <blockquote class="border-l-4 border-teal-400 pl-6 italic text-gray-400">
+                        "But seek ye first the kingdom of God, and his righteousness; and all these things shall be added unto you." – Matthew 6:33
+                    </blockquote>
+                </div>
+                <div class="slide-in-right">
+                    <h3 class="text-2xl font-montserrat font-semibold mb-6 text-teal-400">Education</h3>
+                    <div class="relative">
+                        <div class="timeline-line absolute left-4 top-0 w-0.5 h-full"></div>
+                        <div class="relative mb-8 fade-in">
+                            <div class="absolute left-0 w-8 h-8 bg-teal-400 rounded-full flex items-center justify-center">
+                                <i class="fas fa-graduation-cap text-xs"></i>
+                            </div>
+                            <div class="ml-12">
+                                <h4 class="font-semibold text-lg">B.Tech in AI & ML</h4>
+                                <p class="text-gray-400">SNS College of Technology</p>
+                                <p class="text-sm text-gray-500">2024 – Present</p>
+                            </div>
+                        </div>
+                        <div class="relative mb-8 fade-in">
+                            <div class="absolute left-0 w-8 h-8 bg-teal-400 rounded-full flex items-center justify-center">
+                                <i class="fas fa-school text-xs"></i>
+                            </div>
+                            <div class="ml-12">
+                                <h4 class="font-semibold text-lg">High School</h4>
+                                <p class="text-gray-400">Baptist Academy</p>
+                                <p class="text-sm text-gray-500">2023 – 2024 | 87%</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="py-20 bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-4xl font-montserrat font-bold text-center mb-12 fade-in">Experience</h2>
+            <div class="max-w-3xl mx-auto">
+                <div class="bg-gray-800 p-8 rounded-lg glow-effect fade-in">
+                    <h3 class="text-2xl font-montserrat font-semibold text-teal-400 mb-2">Data Scientist Intern</h3>
+                    <p class="text-gray-400 mb-4">Intellipaat • April 2024 – Present</p>
+                    <ul class="text-gray-300 space-y-2">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-teal-400 mt-1 mr-3"></i>
+                            <span>Data preprocessing and cleaning for large-scale datasets</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-teal-400 mt-1 mr-3"></i>
+                            <span>Machine learning model development and optimization</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-teal-400 mt-1 mr-3"></i>
+                            <span>Collaborative team projects using Python, SQL, Pandas, TensorFlow</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-teal-400 mt-1 mr-3"></i>
+                            <span>Data visualization and predictive analytics implementation</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 bg-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-4xl font-montserrat font-bold text-center mb-12 fade-in">Skills</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="skill-card p-6 rounded-lg scale-in">
+                    <h3 class="text-xl font-montserrat font-semibold mb-4 text-teal-400">Languages</h3>
+                    <div class="space-y-2">
+                        <span class="inline-block bg-gray-700 px-3 py-1 rounded-full text-sm">Python</span>
+                        <span class="inline-block bg-gray-700 px-3 py-1 rounded-full text-sm">SQL</span>
+                        <span class="inline-block bg-gray-700 px-3 py-1 rounded-full text-sm">C</span>
+                    </div>
+                </div>
+                <div class="skill-card p-6 rounded-lg scale-in">
+                    <h3 class="text-xl font-montserrat font-semibold mb-4 text-teal-400">Frameworks/Libraries</h3>
+                    <div class="space-y-2">
+                        <span class="inline-block bg-gray-700 px-3 py-1 rounded-full text-sm">Pandas</span>
+                        <span class="inline-block bg-gray-700 px-3 py-1 rounded-full text-sm">NumPy</span>
+                        <span class="inline-block bg-gray-700 px-3 py-1 rounded-full text-sm">Scikit-Learn</span>
+                        <span class="inline-block bg-gray-700 px-3 py-1 rounded-full text-sm">Matplotlib</span>
+                        <span class="inline-block bg-gray-700 px-3 py-1 rounded-full text-sm">Seaborn</span>
+                    </div>
+                </div>
+                <div class="skill-card p-6 rounded-lg scale-in">
+                    <h3 class="text-xl font-montserrat font-semibold mb-4 text-teal-400">Tools</h3>
+                    <div class="space-y-2">
+                        <span class="inline-block bg-gray-700 px-3 py-1 rounded-full text-sm">Excel</span>
+                        <span class="inline-block bg-gray-700 px-3 py-1 rounded-full text-sm">PowerBI</span>
+                        <span class="inline-block bg-gray-700 px-3 py-1 rounded-full text-sm">MySQL</span>
+                        <span class="inline-block bg-gray-700 px-3 py-1 rounded-full text-sm">SQLite</span>
+                    </div>
+                </div>
+                <div class="skill-card p-6 rounded-lg scale-in">
+                    <h3 class="text-xl font-montserrat font-semibold mb-4 text-teal-400">Platforms</h3>
+                    <div class="space-y-2">
+                        <span class="inline-block bg-gray-700 px-3 py-1 rounded-full text-sm">PyCharm</span>
+                        <span class="inline-block bg-gray-700 px-3 py-1 rounded-full text-sm">Jupyter</span>
+                        <span class="inline-block bg-gray-700 px-3 py-1 rounded-full text-sm">VS Code</span>
+                    </div>
+                </div>
+                <div class="skill-card p-6 rounded-lg scale-in">
+                    <h3 class="text-xl font-montserrat font-semibold mb-4 text-teal-400">Soft Skills</h3>
+                    <div class="space-y-2">
+                        <span class="inline-block bg-gray-700 px-3 py-1 rounded-full text-sm">Problem Solving</span>
+                        <span class="inline-block bg-gray-700 px-3 py-1 rounded-full text-sm">Teamwork</span>
+                        <span class="inline-block bg-gray-700 px-3 py-1 rounded-full text-sm">Communication</span>
+                        <span class="inline-block bg-gray-700 px-3 py-1 rounded-full text-sm">Typewriting</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-4xl font-montserrat font-bold text-center mb-12 fade-in">Services</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="text-center scale-in">
+                    <div class="w-16 h-16 bg-teal-400 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-chart-line text-2xl text-gray-900"></i>
+                    </div>
+                    <h3 class="text-xl font-montserrat font-semibold mb-2">Data Analysis</h3>
+                    <p class="text-gray-400">Uncover patterns and insights from complex datasets</p>
+                </div>
+                <div class="text-center scale-in">
+                    <div class="w-16 h-16 bg-teal-400 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-cogs text-2xl text-gray-900"></i>
+                    </div>
+                    <h3 class="text-xl font-montserrat font-semibold mb-2">Data Strategy</h3>
+                    <p class="text-gray-400">Align data initiatives with business goals</p>
+                </div>
+                <div class="text-center scale-in">
+                    <div class="w-16 h-16 bg-teal-400 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-database text-2xl text-gray-900"></i>
+                    </div>
+                    <h3 class="text-xl font-montserrat font-semibold mb-2">Data Infrastructure</h3>
+                    <p class="text-gray-400">End-to-end system planning and implementation</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 bg-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-4xl font-montserrat font-bold text-center mb-12 fade-in">Projects</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="project-card p-6 rounded-lg scale-in">
+                    <img src="https://i.postimg.cc/BvFC82by/e0f9c0c3-9fb9-4c0e-b067-bd9183aa71ce.png" alt="Walmart Sales Prediction" class="w-full h-48 object-cover rounded-lg mb-4">
+                    <h3 class="text-xl font-montserrat font-semibold mb-2">Walmart Sales Prediction</h3>
+                    <p class="text-gray-400 mb-4">Forecasting sales using ARIMA, XGBoost, and LSTM for inventory management and strategic planning.</p>
+                    <a href="#" class="text-teal-400 hover:text-teal-300 flex items-center">
+                        View Project <i class="fas fa-external-link-alt ml-2"></i>
+                    </a>
+                </div>
+                <div class="project-card p-6 rounded-lg scale-in">
+                    <img src="https://i.postimg.cc/FRQV01JK/fd902624-7916-4d41-b82a-4c7e674ed208.png" alt="COVID-19 Trend Analysis" class="w-full h-48 object-cover rounded-lg mb-4">
+                    <h3 class="text-xl font-montserrat font-semibold mb-2">COVID-19 Trend Analysis</h3>
+                    <p class="text-gray-400 mb-4">Data-driven analysis of pandemic trends with interactive visualizations and cross-country comparisons.</p>
+                    <a href="#" class="text-teal-400 hover:text-teal-300 flex items-center">
+                        View Project <i class="fas fa-external-link-alt ml-2"></i>
+                    </a>
+                </div>
+                <div class="project-card p-6 rounded-lg scale-in">
+                    <img src="https://i.postimg.cc/qvSLM1Jy/ae82d900-4396-4d38-b981-bebf8f557ec8.png" alt="Customer Churn" class="w-full h-48 object-cover rounded-lg mb-4">
+                    <h3 class="text-xl font-montserrat font-semibold mb-2">Customer Churn Prediction</h3>
+                    <p class="text-gray-400 mb-4">BiLSTM-CNN model for customer retention strategy using deep learning techniques.</p>
+                    <a href="#" class="text-teal-400 hover:text-teal-300 flex items-center">
+                        View Project <i class="fas fa-external-link-alt ml-2"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certificates Section -->
+    <section id="certificates" class="py-20 bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-4xl font-montserrat font-bold text-center mb-12 fade-in">Certificates</h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Certificate 1 -->
+                <div class="certificate-card bg-gray-800 p-6 rounded-lg overflow-hidden relative slide-in-left">
+                    <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-teal-400 to-blue-500"></div>
+                    <h3 class="text-xl font-montserrat font-semibold mb-2 text-teal-400">EXECUTIVE POST GRADUATE CERTIFICATION IN DATA SCIENCE AND AI</h3>
+                    <p class="text-gray-400 mb-4">iHUB Divyasampark at IIT Roorkee FEBRUARY 2025</p>
+                    <ul class="text-gray-300 space-y-2 mb-6">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-teal-400 mt-1 mr-3"></i>
+                            <span>Developed advanced expertise in data science, machine learning, and AI-driven analytics</span>
+                        </li>
+                    </ul>
+                    <a href="#" class="btn-primary px-6 py-2 rounded-lg font-semibold text-white inline-block">View Certificate</a>
+                </div>
+
+                <!-- Certificate 2 -->
+                <div class="certificate-card bg-gray-800 p-6 rounded-lg overflow-hidden relative slide-in-right">
+                    <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-500 to-teal-400"></div>
+                    <h3 class="text-xl font-montserrat font-semibold mb-2 text-teal-400">DATA SCIENCE COURSE</h3>
+                    <p class="text-gray-400 mb-4">Intellipaat April 2025</p>
+                    <ul class="text-gray-300 space-y-2 mb-6">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-teal-400 mt-1 mr-3"></i>
+                            <span>Gained hands-on experience in machine learning, data analysis, and predictive modelling</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-teal-400 mt-1 mr-3"></i>
+                            <span>Covered key concepts like data preprocessing, feature engineering, and model evaluation</span>
+                        </li>
+                    </ul>
+                    <a href="#" class="btn-primary px-6 py-2 rounded-lg font-semibold text-white inline-block">View Certificate</a>
+                </div>
+
+                <!-- Certificate 3 -->
+                <div class="certificate-card bg-gray-800 p-6 rounded-lg overflow-hidden relative slide-in-left">
+                    <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-teal-400 to-blue-500"></div>
+                    <h3 class="text-xl font-montserrat font-semibold mb-2 text-teal-400">SQL COURSE</h3>
+                    <p class="text-gray-400 mb-4">Intellipaat July 2024</p>
+                    <ul class="text-gray-300 space-y-2 mb-6">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-teal-400 mt-1 mr-3"></i>
+                            <span>Mastered database querying, data manipulation, and optimization techniques using SQL</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-teal-400 mt-1 mr-3"></i>
+                            <span>Worked with relational databases, writing efficient queries</span>
+                        </li>
+                    </ul>
+                    <a href="#" class="btn-primary px-6 py-2 rounded-lg font-semibold text-white inline-block">View Certificate</a>
+                </div>
+
+                <!-- Certificate 4 -->
+                <div class="certificate-card bg-gray-800 p-6 rounded-lg overflow-hidden relative slide-in-right">
+                    <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-500 to-teal-400"></div>
+                    <h3 class="text-xl font-montserrat font-semibold mb-2 text-teal-400">ENTERPRISE DESIGN THINKING – TEAM ESSENTIALS FOR AI</h3>
+                    <p class="text-gray-400 mb-4">IBM September 2024</p>
+                    <ul class="text-gray-300 space-y-2 mb-6">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-teal-400 mt-1 mr-3"></i>
+                            <span>Developed a human-centered approach to AI solutions</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-teal-400 mt-1 mr-3"></i>
+                            <span>Focused on collaborative problem-solving, innovation strategies, and AI ethics</span>
+                        </li>
+                    </ul>
+                    <a href="#" class="btn-primary px-6 py-2 rounded-lg font-semibold text-white inline-block">View Certificate</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-4xl font-montserrat font-bold text-center mb-12 fade-in">Get in Touch</h2>
+            <div class="grid md:grid-cols-2 gap-12">
+                <div class="slide-in-left">
+                    <h3 class="text-2xl font-montserrat font-semibold mb-6 text-teal-400">Contact Information</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-center">
+                            <i class="fas fa-envelope text-teal-400 text-xl mr-4"></i>
+                            <a href="mailto:emman.cnr@gmail.com" class="text-gray-300 hover:text-teal-400">emman.cnr@gmail.com</a>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-phone text-teal-400 text-xl mr-4"></i>
+                            <a href="tel:+919597321862" class="text-gray-300 hover:text-teal-400">+91 9597321862</a>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fab fa-linkedin text-teal-400 text-xl mr-4"></i>
+                            <a href="https://linkedin.com/in/emmanuel-joshua-y" class="text-gray-300 hover:text-teal-400">LinkedIn Profile</a>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fab fa-github text-teal-400 text-xl mr-4"></i>
+                            <a href="https://github.com/emmanjoshua" class="text-gray-300 hover:text-teal-400">GitHub Profile</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="slide-in-right">
+                    <form id="contact-form" class="space-y-6">
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Name</label>
+                            <input type="text" id="name" name="from_name" required class="form-input w-full px-4 py-2 rounded-lg bg-gray-800 text-white">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Email</label>
+                            <input type="email" id="email" name="from_email" required class="form-input w-full px-4 py-2 rounded-lg bg-gray-800 text-white">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Message</label>
+                            <textarea id="message" name="message" rows="4" required class="form-input w-full px-4 py-2 rounded-lg bg-gray-800 text-white resize-none"></textarea>
+                        </div>
+                        <button type="submit" class="btn-primary w-full py-3 rounded-lg font-semibold text-white">
+                            Send Message
+                        </button>
+                    </form>
+                    <div id="success-message" class="hidden mt-4 p-4 bg-green-500/20 text-green-400 rounded-lg">
+                        Message sent successfully!
+                    </div>
+                    <div id="error-message" class="hidden mt-4 p-4 bg-red-500/20 text-red-400 rounded-lg">
+                        Failed to send message. Please try again.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 py-8 text-center">
+        <p class="text-gray-400">&copy; 2024 Emmanuel Joshua Y. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('active');
+        });
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
+            });
+        });
+
+        // Typing effect
+        const text = "Analyzing Today for a Better Tomorrow!";
+        let index = 0;
+        const typingElement = document.getElementById('typing-text');
+
+        function type() {
+            if (index < text.length) {
+                typingElement.textContent += text.charAt(index);
+                index++;
+                setTimeout(type, 100);
+            }
+        }
+
+        type();
+
+        // Particle animation
+        function createParticles() {
+            const container = document.getElementById('particles');
+            for (let i = 0; i < 50; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 6 + 's';
+                particle.style.animationDuration = (Math.random() * 3 + 3) + 's';
+                container.appendChild(particle);
+            }
+        }
+
+        createParticles();
+
+        // GSAP Animations
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Fade in animations
+        gsap.utils.toArray('.fade-in').forEach(element => {
+            gsap.fromTo(element, {
+                opacity: 0,
+                y: 30
+            }, {
+                opacity: 1,
+                y: 0,
+                duration: 1,
+                scrollTrigger: {
+                    trigger: element,
+                    start: 'top 80%',
+                    end: 'bottom 20%',
+                    toggleActions: 'play none none reverse'
+                }
+            });
+        });
+
+        // Slide in left animations
+        gsap.utils.toArray('.slide-in-left').forEach(element => {
+            gsap.fromTo(element, {
+                opacity: 0,
+                x: -50
+            }, {
+                opacity: 1,
+                x: 0,
+                duration: 1,
+                scrollTrigger: {
+                    trigger: element,
+                    start: 'top 80%',
+                    end: 'bottom 20%',
+                    toggleActions: 'play none none reverse'
+                }
+            });
+        });
+
+        // Slide in right animations
+        gsap.utils.toArray('.slide-in-right').forEach(element => {
+            gsap.fromTo(element, {
+                opacity: 0,
+                x: 50
+            }, {
+                opacity: 1,
+                x: 0,
+                duration: 1,
+                scrollTrigger: {
+                    trigger: element,
+                    start: 'top 80%',
+                    end: 'bottom 20%',
+                    toggleActions: 'play none none reverse'
+                }
+            });
+        });
+
+        // Scale in animations
+        gsap.utils.toArray('.scale-in').forEach(element => {
+            gsap.fromTo(element, {
+                opacity: 0,
+                scale: 0.9
+            }, {
+                opacity: 1,
+                scale: 1,
+                duration: 0.8,
+                scrollTrigger: {
+                    trigger: element,
+                    start: 'top 80%',
+                    end: 'bottom 20%',
+                    toggleActions: 'play none none reverse'
+                }
+            });
+        });
+
+        // Initialize EmailJS
+        (function() {
+            emailjs.init('IAXFnm0pMLQPYD3Kc');
+        })();
+
+        // Form submission
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const successMsg = document.getElementById('success-message');
+            const errorMsg = document.getElementById('error-message');
+            
+            // Hide any previous messages
+            successMsg.classList.add('hidden');
+            errorMsg.classList.add('hidden');
+            
+            emailjs.sendForm('service_qsfpunh', 'template_ga6beui', this)
+                .then(() => {
+                    // Show success message
+                    successMsg.classList.remove('hidden');
+                    // Reset form
+                    this.reset();
+                    // Hide success message after 5 seconds
+                    setTimeout(() => {
+                        successMsg.classList.add('hidden');
+                    }, 5000);
+                }, (error) => {
+                    // Show error message
+                    errorMsg.classList.remove('hidden');
+                    console.error('Failed to send message:', error);
+                });
+        });
+
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
