@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emmanuel Joshua Y | Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        
+        /* Hero Section */
+        .hero {
+            display: flex;
+            align-items: center;
+            height: 100vh;
+            position: relative;
+            background: #f8f8f8;
+            overflow: hidden;
+        }
+
+        .hero-text {
+            flex: 1;
+            padding: 0 5%;
+            z-index: 2;
+        }
+
+        .hero-text h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            color: #1a1a1a;
+        }
+
+        .hero-text p {
+            font-size: 1.2rem;
+            color: #555;
+            max-width: 500px;
+            margin-bottom: 2rem;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .btn {
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background: #5a3ff2;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #4a30d2;
+        }
+
+        .btn-outline {
+            border: 2px solid #5a3ff2;
+            color: #5a3ff2;
+        }
+
+        .btn-outline:hover {
+            background: #f0edff;
+        }
+
+        .hero-image {
+    flex: 1.2; /* Gives more screen space to image */
+    background: url('https://i.postimg.cc/2jKQMhmD/emman-speech-pic.jpg') center center / cover no-repeat;
+    background-size: 165%; /* Extra zoom to fill gaps */
+    background-position: center; /* Centers the focus */
+    height: 100%;
+    position: relative;
+}
+
+
+.hero-image::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 40%; /* Start fade earlier */
+    height: 100%;
+    background: linear-gradient(to left, rgba(248,248,248,0) 10%, #f8f8f8 90%);
+    pointer-events: none;
+}
+
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+        
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        .animate-gradient {
+            background-size: 200% 200%;
+            animation: gradient 15s ease infinite;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+        .animate-float-delayed {
+            animation: float 8s ease-in-out infinite;
+            animation-delay: 2s;
+        }
+        .typewriter {
+            overflow: hidden;
+            border-right: .15em solid white;
+            white-space: nowrap;
+            animation: typing 3.5s steps(40, end), blink-caret .75s step-end infinite;
+        }
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: white; }
+        }
+        
+        .skill-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .hovered-element {
+            transition: all 0.5s ease-in-out;
+        }
+        
+        .project-card:hover .project-overlay {
+            opacity: 1;
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: #6e8efb;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .active::after {
+            width: 100%;
+        }
+        
+        /* Scroll Reveal */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+    <!-- Navigation -->
+<nav class="fixed w-full bg-white shadow-md z-50">
+    <div class="container mx-auto px-6 py-3 flex justify-between items-center">
+        <a href="#" class="text-2xl font-bold text-indigo-600">Emmanuel<span class="text-gray-800">.</span></a>
+        <div class="hidden md:flex space-x-8">
+            <a href="#home" class="nav-link active">Home</a>
+            <a href="#about" class="nav-link">About</a>
+            <a href="#experience" class="nav-link">Experience</a>
+            <a href="#projects" class="nav-link">Projects</a>
+            <a href="#education" class="nav-link">Education</a>
+            <a href="#certificates" class="nav-link">Certificates</a>
+            <a href="#contact" class="nav-link">Contact</a>
+        </div>
+        <button class="md:hidden focus:outline-none" id="menu-btn">
+            <i class="fas fa-bars text-2xl"></i>
+        </button>
+    </div>
+    <!-- Mobile Menu -->
+    <div class="md:hidden hidden bg-white w-full px-6 py-3" id="mobile-menu">
+        <div class="flex flex-col space-y-4">
+            <a href="#home" class="nav-link active">Home</a>
+            <a href="#about" class="nav-link">About</a>
+            <a href="#experience" class="nav-link">Experience</a>
+            <a href="#projects" class="nav-link">Projects</a>
+            <a href="#education" class="nav-link">Education</a>
+            <a href="#certificates" class="nav-link">Certificates</a>
+            <a href="#contact" class="nav-link">Contact</a>
+        </div>
+    </div>
+</nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-text">
+            <h1>Hi, I'm Emmanuel Joshua Y</h1>
+            <p>
+                B.Tech AI & ML student passionate about turning complex data into real-world solutions
+                with strong values and ethical tech.
+            </p>
+            <div class="buttons">
+                <a href="#contact" class="btn btn-primary">Contact Me</a>
+                <a href="#projects" class="btn btn-outline">View Projects</a>
+            </div>
+        </div>
+        <div class="hero-image"></div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-16 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-12">About Me</h2>
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/3 mb-8 md:mb-0 flex justify-center">
+                    <div class="w-64 h-64 rounded-full overflow-hidden border-4 border-indigo-100 shadow-lg">
+                        <img src="https://joseselvam.neocities.org/e-port/emman2.jpg" alt="Emmanuel Joshua Y" class="w-full h-full object-cover">
+                    </div>
+                </div>
+                <div class="md:w-2/3 md:pl-12">
+                    <h3 class="text-2xl font-bold text-indigo-600 mb-4">Data scientist!</h3>
+                    <p class="text-lg mb-6">Passionate about leveraging AI and data science to create meaningful impact. Currently pursuing B.Tech in AI & ML at SNS College of Technology, I'm dedicated to transforming complex data into actionable insights that drive real-world solutions. My journey in data science is guided by strong values and faith, believing that technology should serve humanity's greater good. As I continue to grow in this field, I remain committed to using my skills responsibly and ethically.</p>
+                    <blockquote class="border-l-4 border-indigo-500 pl-4 italic mb-6">
+                        "But seek ye first the kingdom of God, and his righteousness; and all these things shall be added unto you." – Matthew 6:33
+                    </blockquote>
+                    <a href="#" class="text-indigo-600 font-medium hover:underline"></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-12">Experience</h2>
+            <div class="max-w-3xl mx-auto bg-white rounded-xl shadow-md overflow-hidden p-6 mb-8">
+                <div class="flex flex-col md:flex-row">
+                    <div class="md:w-1/4 mb-4 md:mb-0">
+                        <h3 class="text-xl font-bold text-indigo-600">Data Scientist Intern</h3>
+                        <p class="text-gray-600">Intellipaat</p>
+                    </div>
+                    <div class="md:w-3/4">
+                        <ul class="list-disc pl-5 space-y-2">
+                            <li>Preprocessing and cleaning of large-scale datasets.</li>
+                            <li>Machine learning model development & optimization.</li>
+                            <li>Team collaboration using Python, SQL, Pandas, TensorFlow.</li>
+                            <li>Data visualization and predictive analytics.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-12">Skills</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <!-- Languages -->
+                <div class="skill-card bg-gray-50 p-6 rounded-lg shadow-md transition duration-300">
+                    <h3 class="text-xl font-bold mb-4 text-indigo-600">Languages</h3>
+                    <ul class="space-y-2">
+                        <li class="flex items-center"><i class="fab fa-python text-indigo-500 mr-2"></i> Python</li>
+                        <li class="flex items-center"><i class="fas fa-database text-indigo-500 mr-2"></i> SQL</li>
+                        <li class="flex items-center"><i class="fas fa-code text-indigo-500 mr-2"></i> C</li>
+                    </ul>
+                </div>
+                
+                <!-- Platforms -->
+                <div class="skill-card bg-gray-50 p-6 rounded-lg shadow-md transition duration-300">
+                    <h3 class="text-xl font-bold mb-4 text-indigo-600">Platforms</h3>
+                    <ul class="space-y-2">
+                        <li class="flex items-center"><i class="fas fa-laptop-code text-indigo-500 mr-2"></i> PyCharm</li>
+                        <li class="flex items-center"><i class="fas fa-file-code text-indigo-500 mr-2"></i> Jupyter</li>
+                        <li class="flex items-center"><i class="fas fa-code text-indigo-500 mr-2"></i> VS Code</li>
+                    </ul>
+                </div>
+                
+                <!-- Tools -->
+                <div class="skill-card bg-gray-50 p-6 rounded-lg shadow-md transition duration-300">
+                    <h3 class="text-xl font-bold mb-4 text-indigo-600">Tools</h3>
+                    <ul class="space-y-2">
+                        <li class="flex items-center"><i class="fas fa-file-excel text-indigo-500 mr-2"></i> Excel</li>
+                        <li class="flex items-center"><i class="fas fa-chart-line text-indigo-500 mr-2"></i> PowerBI</li>
+                        <li class="flex items-center"><i class="fas fa-database text-indigo-500 mr-2"></i> MySQL</li>
+                        <li class="flex items-center"><i class="fas fa-database text-indigo-500 mr-2"></i> SQLite</li>
+                    </ul>
+                </div>
+                
+                <!-- Frameworks -->
+                <div class="skill-card bg-gray-50 p-6 rounded-lg shadow-md transition duration-300">
+                    <h3 class="text-xl font-bold mb-4 text-indigo-600">Frameworks</h3>
+                    <ul class="space-y-2">
+                        <li class="flex items-center"><i class="fab fa-python text-indigo-500 mr-2"></i> Pandas</li>
+                        <li class="flex items-center"><i class="fab fa-python text-indigo-500 mr-2"></i> NumPy</li>
+                        <li class="flex items-center"><i class="fas fa-brain text-indigo-500 mr-2"></i> Scikit-Learn</li>
+                        <li class="flex items-center"><i class="fas fa-chart-bar text-indigo-500 mr-2"></i> Matplotlib</li>
+                        <li class="flex items-center"><i class="fas fa-chart-pie text-indigo-500 mr-2"></i> Seaborn</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-12">Projects</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project 1 -->
+                <div class="project-card bg-white rounded-lg overflow-hidden shadow-md relative">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://joseselvam.neocities.org/e-port/wall2.jpg" alt="Walmart Sales Prediction" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Walmart Sales Prediction</h3>
+                        <p class="text-gray-600 mb-4">Forecasting sales using ARIMA, XGBoost, and LSTM for inventory management and strategic planning.</p>
+                        <a href="https://github.com/Emman-code/Emman-Projects/blob/main/Wallmart_Emman.ipynb" class="text-indigo-600 font-medium hover:underline">View Project</a>
+                    </div>
+                </div>
+                
+                <!-- Project 2 -->
+                <div class="project-card bg-white rounded-lg overflow-hidden shadow-md relative">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://joseselvam.neocities.org/e-port/covid.jpg" alt="COVID-19 Trend Analysis" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">COVID-19 Trend Analysis</h3>
+                        <p class="text-gray-600 mb-4">Data-driven analysis of pandemic trends with interactive visualizations and cross-country comparisons.</p>
+                        <a href="https://github.com/Emman-code/Emman-Projects/blob/main/Covid19_Emman.ipynb" class="text-indigo-600 font-medium hover:underline">View Project</a>
+                    </div>
+                </div>
+                
+                <!-- Project 3 -->
+                <div class="project-card bg-white rounded-lg overflow-hidden shadow-md relative">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://joseselvam.neocities.org/e-port/cus2.jpg" alt="Customer Churn Prediction" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Customer Churn Prediction</h3>
+                        <p class="text-gray-600 mb-4">BiLSTM-CNN model for customer retention strategy using deep learning techniques.</p>
+                        <a href="https://huggingface.co/spaces/EmmanuelJoshua/Customer_churn_Prediction" class="text-indigo-600 font-medium hover:underline">View Project</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="py-16 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-12">Education</h2>
+            <div class="max-w-4xl mx-auto space-y-8">
+                <!-- Undergraduate -->
+                <div class="bg-gray-50 p-6 rounded-lg shadow-md">
+                    <h3 class="text-xl font-bold text-indigo-600 mb-2">UNDERGRADUATE</h3>
+                    <p class="font-medium mb-1">INSTITUTION: SNS College of Technology</p>
+                    <p class="mb-1">COURSE: Artificial Intelligence And Machine Learning</p>
+                    <p class="mb-1">YEAR: 2024 - Present</p>
+                    <p>CGPA: 8.73</p>
+                </div>
+                
+                <!-- Higher Secondary -->
+                <div class="bg-gray-50 p-6 rounded-lg shadow-md">
+                    <h3 class="text-xl font-bold text-indigo-600 mb-2">HIGHER SECONDARY EDUCATION</h3>
+                    <p class="font-medium mb-1">INSTITUTION: Baptist Academy</p>
+                    <p class="mb-1">YEAR: 2022-2024</p>
+                    <p>PERCENTAGE: 87%</p>
+                </div>
+                
+                <!-- Secondary -->
+                <div class="bg-gray-50 p-6 rounded-lg shadow-md">
+                    <h3 class="text-xl font-bold text-indigo-600 mb-2">SECONDARY EDUCATION</h3>
+                    <p class="font-medium mb-1">INSTITUTION: Baptist Academy</p>
+                    <p class="mb-1">YEAR: 2021-2022</p>
+                    <p>PERCENTAGE: 83%</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certificates Section -->
+
+<section id="certificates" class="py-20 bg-gray-100">
+    <div class="container mx-auto">
+        <h2 class="text-4xl font-bold mb-6">Certificates</h2>
+<section class="py-16 bg-gray-50">
+  <div class="container mx-auto px-6">
+    <h2 class="text-3xl font-bold text-center mb-12">Certificates</h2>
+    <div class="relative">
+      
+      <!-- Slider Container -->
+      <div id="certificate-slider" class="flex transition-transform duration-500 ease-in-out touch-pan-x">
+        
+        <!-- Certificate 1 -->
+        <div class="flex-shrink-0 w-full sm:w-1/2 lg:w-1/3 px-3">
+          <div class="bg-white rounded-xl shadow-md overflow-hidden">
+            <img src="https://joseselvam.neocities.org/e-port/post.jpg" class="w-full h-48 object-cover" alt="Certificate 1">
+            <div class="p-6">
+              <h3 class="text-lg font-bold text-indigo-600 mb-2">EXECUTIVE POST GRADUATE CERTIFICATION IN DATA SCIENCE AND AI</h3>
+              <p class="font-medium mb-1">Issued By: iHUB Divyasampark at IIT Roorkee</p>
+              <p class="text-sm text-gray-500 mb-4">Year: FEBRUARY 2025</p>
+              <a href="https://joseselvam.neocities.org/e-port/post.jpg" class="text-indigo-600 font-medium hover:underline">View Certificate</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Certificate 2 -->
+        <div class="flex-shrink-0 w-full sm:w-1/2 lg:w-1/3 px-3">
+          <div class="bg-white rounded-xl shadow-md overflow-hidden">
+            <img src="https://i.postimg.cc/fbM0gnWV/Data-science-course-certificate.png" class="w-full h-48 object-cover" alt="Certificate 2">
+            <div class="p-6">
+              <h3 class="text-lg font-bold text-indigo-600 mb-2">DATA SCIENCE ARCHITECT MASTERS PROGRAM
+</h3>
+              <p class="font-medium mb-1">Issued By: Intellipaat</p>
+              <p class="text-sm text-gray-500 mb-4">Issue Date: July, 2025</p>
+              <a href="https://lms.intellipaat.com/certificate-link/?Yz05Mzk1OSZ1PTI1MjAxNiZleHQ9MQ==" class="text-indigo-600 font-medium hover:underline">View Certificate</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Certificate 3 -->
+        <div class="flex-shrink-0 w-full sm:w-1/2 lg:w-1/3 px-3">
+          <div class="bg-white rounded-xl shadow-md overflow-hidden">
+            <img src="https://i.postimg.cc/QNFSq5nR/image.png" class="w-full h-48 object-cover" alt="Certificate 3">
+            <div class="p-6">
+              <h3 class="text-lg font-bold text-indigo-600 mb-2">ENTERPRISE DESIGN THINKING - Team Essentials for AI</h3>
+              <p class="font-medium mb-1">Issued By: IBM</p>
+              <p class="text-sm text-gray-500 mb-4">Issued: Nov 2024</p>
+              <a href="https://www.credly.com/badges/42dd3320-2e9b-4bf2-9bed-85d1ff95b1de/linked_in_profile" class="text-indigo-600 font-medium hover:underline">View Certificate</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Add More Certificates Here -->
+        <div class="flex-shrink-0 w-full sm:w-1/2 lg:w-1/3 px-3">
+          <div class="bg-white rounded-xl shadow-md overflow-hidden">
+            <img src="https://i.postimg.cc/MTN7LPrg/image.png" class="w-full h-48 object-cover" alt="Certificate 4">
+            <div class="p-6">
+              <h3 class="text-lg font-bold text-indigo-600 mb-2">SQL COURSE</h3>
+              <p class="font-medium mb-1">Issued By: Intellipaat</p>
+              <p class="text-sm text-gray-500 mb-4">Issued: July 2024</p>
+              <a href="https://lms.intellipaat.com/certificate-link/?Yz1jdXMtOTEzMTY3JnU9MjUyMDE2JmV4dD0x" class="text-indigo-600 font-medium hover:underline">View Certificate</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Navigation Buttons -->
+      <button id="prev-btn" class="hidden lg:block absolute top-1/2 -translate-y-1/2 left-0 bg-indigo-600 text-white px-3 py-2 rounded-full shadow hover:bg-indigo-700">&larr;</button>
+      <button id="next-btn" class="hidden lg:block absolute top-1/2 -translate-y-1/2 right-0 bg-indigo-600 text-white px-3 py-2 rounded-full shadow hover:bg-indigo-700">&rarr;</button>
+    </div>
+  </div>
+</section>
+
+<script>
+let currentIndex = 0;
+const slider = document.getElementById("certificate-slider");
+const totalItems = slider.children.length;
+let itemsPerView = window.innerWidth >= 1024 ? 3 : (window.innerWidth >= 640 ? 2 : 1);
+
+const updateSlider = () => {
+  const itemWidth = slider.children[0].offsetWidth;
+  slider.style.transform = `translateX(-${currentIndex * itemWidth}px)`;
+};
+
+document.getElementById("next-btn").addEventListener("click", () => {
+  if (currentIndex < totalItems - itemsPerView) {
+    currentIndex++;
+    updateSlider();
+  }
+});
+
+document.getElementById("prev-btn").addEventListener("click", () => {
+  if (currentIndex > 0) {
+    currentIndex--;
+    updateSlider();
+  }
+});
+
+window.addEventListener("resize", () => {
+  itemsPerView = window.innerWidth >= 1024 ? 3 : (window.innerWidth >= 640 ? 2 : 1);
+  updateSlider();
+});
+
+// Swipe for mobile
+let startX = 0;
+slider.addEventListener("touchstart", e => {
+  startX = e.touches[0].clientX;
+});
+slider.addEventListener("touchend", e => {
+  const endX = e.changedTouches[0].clientX;
+  if (startX - endX > 50 && currentIndex < totalItems - itemsPerView) {
+    currentIndex++;
+  } else if (endX - startX > 50 && currentIndex > 0) {
+    currentIndex--;
+  }
+  updateSlider();
+});
+</script>
+
+
+
+
+    <!-- Contact Section -->
+    <!-- Contact Section -->
+<section id="contact" class="py-16 bg-white">
+    <div class="container mx-auto px-6">
+        <h2 class="text-3xl font-bold text-center mb-12">Get In Touch</h2>
+        <div class="max-w-2xl mx-auto">
+            <form id="contact-form" class="space-y-6">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <label for="name" class="block mb-2 font-medium">Name</label>
+                        <input type="text" id="name" name="user_name" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                    </div>
+                    <div>
+                        <label for="email" class="block mb-2 font-medium">Email</label>
+                        <input type="email" id="email" name="user_email" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                    </div>
+                </div>
+                <div>
+                    <label for="subject" class="block mb-2 font-medium">Subject</label>
+                    <input type="text" id="subject" name="subject" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                </div>
+                <div>
+                    <label for="message" class="block mb-2 font-medium">Message</label>
+                    <textarea id="message" name="message" rows="5" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"></textarea>
+                </div>
+                <button type="submit" class="w-full bg-indigo-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-indigo-700 transition">
+                    Send Message
+                </button>
+            </form>
+        </div>
+    </div>
+</section>
+
+<!-- EmailJS Script -->
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+<script>
+    (function() {
+        emailjs.init("IAXFnm0pMLQPYD3Kc"); // Public Key
+    })();
+
+    document.getElementById('contact-form').addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        emailjs.sendForm('service_o7mi0ds', 'template_ga6beui', this)
+            .then(function() {
+                alert('Message Sent Successfully!');
+                document.getElementById('contact-form').reset();
+            }, function(error) {
+                console.log('FAILED...', error);
+                alert('Failed to send message. Please try again later.');
+            });
+    });
+</script>
+
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-8">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <a href="#" class="text-2xl font-bold text-white">Emmanuel<span class="text-indigo-400">.</span></a>
+                    <p class="mt-2 text-gray-400">Transforming data into solutions.</p>
+                </div>
+                <div class="flex space-x-6">
+                    <a href="https://github.com/Emman-code" class="text-gray-400 hover:text-white transition"><i class="fab fa-github text-xl"></i></a>
+                    <a href="https://www.linkedin.com/in/emmanuel-joshua-ej/" class="text-gray-400 hover:text-white transition"><i class="fab fa-linkedin text-xl"></i></a>
+                    <a href="https://x.com/EmmanCnr" class="text-gray-400 hover:text-white transition"><i class="fab fa-twitter text-xl"></i></a>
+                    <a href="https://www.instagram.com/__.yoix.__/" class="text-gray-400 hover:text-white transition"><i class="fab fa-instagram text-xl"></i></a>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2025 Emmanuel Joshua Y. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Parallax effect for floating elements
+        document.addEventListener('mousemove', (e) => {
+            const floatingElements = document.querySelectorAll('.animate-float, .animate-float-delayed');
+            floatingElements.forEach(element => {
+                const speed = parseFloat(element.getAttribute('data-speed')) || 0.1;
+                const x = (window.innerWidth - e.pageX * speed) / 100;
+                const y = (window.innerHeight - e.pageY * speed) / 100;
+                element.style.transform = `translateX(${x}px) translateY(${y}px)`;
+            });
+        });
+
+        // Mobile menu toggle
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                window.scrollTo({
+                    top: targetElement.offsetTop - 80,
+                    behavior: 'smooth'
+                });
+                
+                // Close mobile menu if open
+                if (!mobileMenu.classList.contains('hidden')) {
+                    mobileMenu.classList.add('hidden');
+                }
+                
+                // Update active nav link
+                document.querySelectorAll('.nav-link').forEach(link => {
+                    link.classList.remove('active');
+                });
+                this.classList.add('active');
+            });
+        });
+        
+        // Update active nav link on scroll
+        window.addEventListener('scroll', () => {
+            const scrollPosition = window.scrollY;
+            
+            document.querySelectorAll('section').forEach(section => {
+                const sectionTop = section.offsetTop - 100;
+                const sectionHeight = section.offsetHeight;
+                const sectionId = section.getAttribute('id');
+                
+                if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                    document.querySelectorAll('.nav-link').forEach(link => {
+                        link.classList.remove('active');
+                        if (link.getAttribute('href') === `#${sectionId}`) {
+                            link.classList.add('active');
+                        }
+                    });
+                }
+            });
+        });
+
+        // Scroll reveal animation for hero
+        const io = new IntersectionObserver((entries)=>{
+            entries.forEach(e => {
+                if (e.isIntersecting) e.target.classList.add('is-visible');
+            });
+        }, {threshold: 0.2});
+        document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+    </script>
+<p style="border-radius: 8px; text-align: center; font-size: 12px; color: #fff; margin-top: 16px;position: fixed; left: 8px; bottom: 8px; z-index: 10; background: rgba(0, 0, 0, 0.8); padding: 4px 8px;">Made with <img src="https://enzostvs-deepsite.hf.space/logo.svg" alt="DeepSite Logo" style="width: 16px; height: 16px; vertical-align: middle;display:inline-block;margin-right:3px;filter:brightness(0) invert(1);"><a href="https://enzostvs-deepsite.hf.space" style="color: #fff;text-decoration: underline;" target="_blank" >DeepSite</a> - 🧬 <a href="https://enzostvs-deepsite.hf.space?remix=Emman-Code/portfolio-emman" style="color: #fff;text-decoration: underline;" target="_blank" >Remix</a></p></body>
+</html>
