@@ -1,131 +1,162 @@
-                if (target) {
-                                        target.scrollIntoView({
-                                                                behavior: '
-                                                                <p style="border-radius: 8px; text-align: center; font-size: 12px; color: #fff; margin-top: 16px;position: fixed; left: 8px; bottom: 8px; z-index: 10; background: rgba(0, 0, 0, 0.8); padding: 4px 8px;">Made with <img src="https://enzostvs-deepsite.hf.space/logo.svg" alt="DeepSite Logo" style="width: 16px; height: 16px; vertical-align: middle;display:inline-block;margin-right:3px;filter:brightness(0) invert(1);"><a href="https://enzostvs-deepsite.hf.space" style="color: #fff;text-decoration: underline;" target="_blank" >DeepSite</a> - 🧬 <a href="https://enzostvs-deepsite.hf.space?remix=Emman-Code/emman-portfolio" style="color: #fff;text-decoration: underline;" target="_blank" >Remix</a></p></body>
-target.scrollIntoView({
-                        behavior: '
-</body>
-</html><!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Emmanuel Joshua Y - Data Science Intern Portfolio</title>
+    <title>Emmanuel Joshua Y | Portfolio</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Open+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        :root {
-            --navy: #0D1B2A;
-            --charcoal: #1C1C1C;
-            --teal: #00B4D8;
-            --electric-blue: #1E90FF;
-            --silver: #E0E0E0;
-            --white-smoke: #F5F5F5;
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        
+        /* Hero Section */
+        .hero {
+            display: flex;
+            align-items: center;
+            height: 100vh;
+            position: relative;
+            background: #f8f8f8;
+            overflow: hidden;
         }
+
+        .hero-text {
+            flex: 1;
+            padding: 0 5%;
+            z-index: 2;
+        }
+
+        .hero-text h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            color: #1a1a1a;
+        }
+
+        .hero-text p {
+            font-size: 1.2rem;
+            color: #555;
+            max-width: 500px;
+            margin-bottom: 2rem;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .btn {
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background: #5a3ff2;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #4a30d2;
+        }
+
+        .btn-outline {
+            border: 2px solid #5a3ff2;
+            color: #5a3ff2;
+        }
+
+        .btn-outline:hover {
+            background: #f0edff;
+        }
+
+        .hero-image {
+    flex: 1.2; /* Gives more screen space to image */
+    background: url('https://i.postimg.cc/2jKQMhmD/emman-speech-pic.jpg') center center / cover no-repeat;
+    background-size: 165%; /* Extra zoom to fill gaps */
+    background-position: center; /* Centers the focus */
+    height: 100%;
+    position: relative;
+}
+
+
+.hero-image::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 40%; /* Start fade earlier */
+    height: 100%;
+    background: linear-gradient(to left, rgba(248,248,248,0) 10%, #f8f8f8 90%);
+    pointer-events: none;
+}
+
         
         body {
-            font-family: 'Open Sans', sans-serif;
-            background: var(--navy);
-            color: var(--white-smoke);
-            overflow-x: hidden;
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
         }
         
-        .font-montserrat {
-            font-family: 'Montserrat', sans-serif;
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
-        
-        .tech-grid {
-            background-image: 
-                linear-gradient(rgba(0, 180, 216, 0.1) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(0, 180, 216, 0.1) 1px, transparent 1px);
-            background-size: 30px 30px;
+        .animate-gradient {
+            background-size: 200% 200%;
+            animation: gradient 15s ease infinite;
         }
-        
-        .glow-effect {
-            box-shadow: 0 0 20px rgba(0, 180, 216, 0.3);
-            transition: box-shadow 0.3s ease;
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
         }
-        
-        .glow-effect:hover {
-            box-shadow: 0 0 30px rgba(0, 180, 216, 0.6);
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
         }
-        
-        .timeline-line {
-            background: linear-gradient(to bottom, var(--teal), var(--electric-blue));
+        .animate-float-delayed {
+            animation: float 8s ease-in-out infinite;
+            animation-delay: 2s;
         }
-        
-        .skill-card {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: all 0.3s ease;
+        .typewriter {
+            overflow: hidden;
+            border-right: .15em solid white;
+            white-space: nowrap;
+            animation: typing 3.5s steps(40, end), blink-caret .75s step-end infinite;
+        }
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: white; }
         }
         
         .skill-card:hover {
             transform: translateY(-5px);
-            background: rgba(255, 255, 255, 0.08);
-            border-color: var(--teal);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .hovered-element {
+            transition: all 0.5s ease-in-out;
         }
         
-        .project-card {
-            background: linear-gradient(135deg, rgba(0, 180, 216, 0.1), rgba(30, 144, 255, 0.1));
-            border: 1px solid rgba(0, 180, 216, 0.2);
-            transition: all 0.3s ease;
-        }
-        
-        .project-card:hover {
-            transform: scale(1.02);
-            border-color: var(--teal);
-        }
-        
-        .certificate-card {
-            transition: all 0.3s ease;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        
-        .certificate-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0, 180, 216, 0.2);
-        }
-        
-        .btn-primary {
-            background: linear-gradient(135deg, var(--teal), var(--electric-blue));
-            transition: all 0.3s ease;
-        }
-        
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(0, 180, 216, 0.4);
-        }
-        
-        .form-input {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            transition: all 0.3s ease;
-        }
-        
-        .form-input:focus {
-            border-color: var(--teal);
-            box-shadow: 0 0 10px rgba(0, 180, 216, 0.3);
+        .project-card:hover .project-overlay {
+            opacity: 1;
         }
         
         .nav-link {
             position: relative;
-            transition: color 0.3s ease;
         }
         
         .nav-link::after {
             content: '';
             position: absolute;
-            bottom: -5px;
-            left: 0;
             width: 0;
             height: 2px;
-            background: var(--teal);
+            bottom: 0;
+            left: 0;
+            background-color: #6e8efb;
             transition: width 0.3s ease;
         }
         
@@ -133,630 +164,516 @@ target.scrollIntoView({
             width: 100%;
         }
         
-        .typing-effect {
-            border-right: 2px solid var(--teal);
-            animation: blink 1s infinite;
+        .active::after {
+            width: 100%;
         }
         
-        @keyframes blink {
-            0%, 50% { border-color: var(--teal); }
-            51%, 100% { border-color: transparent; }
-        }
-        
-        .fade-in {
+        /* Scroll Reveal */
+        .reveal {
             opacity: 0;
             transform: translateY(30px);
+            transition: all 0.8s ease;
         }
-        
-        .slide-in-left {
-            opacity: 0;
-            transform: translateX(-50px);
-        }
-        
-        .slide-in-right {
-            opacity: 0;
-            transform: translateX(50px);
-        }
-        
-        .scale-in {
-            opacity: 0;
-            transform: scale(0.9);
-        }
-        
-        /* Mobile menu styles */
-        .mobile-menu {
-            transform: translateX(-100%);
-            transition: transform 0.3s ease;
-        }
-        
-        .mobile-menu.active {
-            transform: translateX(0);
-        }
-        
-        /* Particle animation */
-        .particle {
-            position: absolute;
-            width: 2px;
-            height: 2px;
-            background: var(--teal);
-            border-radius: 50%;
-            animation: float 6s infinite linear;
-            z-index: 0;
-        }
-        
-        @keyframes float {
-            0% {
-                transform: translateY(calc(100vh + 100px)) translateX(0);
-                opacity: 0;
-            }
-            10% {
-                opacity: 1;
-            }
-            90% {
-                opacity: 1;
-            }
-            100% {
-                transform: translateY(-100px) translateX(100px);
-                opacity: 0;
-            }
-        }
-
-        .tech-grid {
-            position: relative;
-            z-index: 1;
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
     </style>
 </head>
-<body class="bg-gray-900 text-white">
+<body class="bg-gray-50 text-gray-800">
     <!-- Navigation -->
-    <nav class="fixed top-0 w-full bg-gray-900/90 backdrop-blur-md z-50 border-b border-gray-700">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-16">
-                <div class="text-xl font-montserrat font-bold text-teal-400">Emmanuel Joshua Y</div>
-                <div class="hidden md:flex space-x-8">
-                    <a href="#home" class="nav-link text-gray-300 hover:text-teal-400">Home</a>
-                    <a href="#about" class="nav-link text-gray-300 hover:text-teal-400">About</a>
-                    <a href="#experience" class="nav-link text-gray-300 hover:text-teal-400">Experience</a>
-                    <a href="#skills" class="nav-link text-gray-300 hover:text-teal-400">Skills</a>
-                    <a href="#projects" class="nav-link text-gray-300 hover:text-teal-400">Projects</a>
-                    <a href="#certificates" class="nav-link text-gray-300 hover:text-teal-400">Certificates</a>
-                    <a href="#contact" class="nav-link text-gray-300 hover:text-teal-400">Contact</a>
-                </div>
-                <button class="md:hidden text-gray-300" id="mobile-menu-btn">
-                    <i class="fas fa-bars text-2xl"></i>
-                </button>
-            </div>
+<nav class="fixed w-full bg-white shadow-md z-50">
+    <div class="container mx-auto px-6 py-3 flex justify-between items-center">
+        <a href="#" class="text-2xl font-bold text-indigo-600">Emmanuel<span class="text-gray-800">.</span></a>
+        <div class="hidden md:flex space-x-8">
+            <a href="#home" class="nav-link active">Home</a>
+            <a href="#about" class="nav-link">About</a>
+            <a href="#experience" class="nav-link">Experience</a>
+            <a href="#projects" class="nav-link">Projects</a>
+            <a href="#education" class="nav-link">Education</a>
+            <a href="#certificates" class="nav-link">Certificates</a>
+            <a href="#contact" class="nav-link">Contact</a>
         </div>
-        <!-- Mobile Menu -->
-        <div class="mobile-menu fixed inset-0 bg-gray-900 z-40 md:hidden" id="mobile-menu">
-            <div class="flex flex-col items-center justify-center h-full space-y-8">
-                <a href="#home" class="text-2xl text-gray-300 hover:text-teal-400 mobile-link">Home</a>
-                <a href="#about" class="text-2xl text-gray-300 hover:text-teal-400 mobile-link">About</a>
-                <a href="#experience" class="text-2xl text-gray-300 hover:text-teal-400 mobile-link">Experience</a>
-                <a href="#skills" class="text-2xl text-gray-300 hover:text-teal-400 mobile-link">Skills</a>
-                <a href="#projects" class="text-2xl text-gray-300 hover:text-teal-400 mobile-link">Projects</a>
-                <a href="#contact" class="text-2xl text-gray-300 hover:text-teal-400 mobile-link">Contact</a>
-            </div>
+        <button class="md:hidden focus:outline-none" id="menu-btn">
+            <i class="fas fa-bars text-2xl"></i>
+        </button>
+    </div>
+    <!-- Mobile Menu -->
+    <div class="md:hidden hidden bg-white w-full px-6 py-3" id="mobile-menu">
+        <div class="flex flex-col space-y-4">
+            <a href="#home" class="nav-link active">Home</a>
+            <a href="#about" class="nav-link">About</a>
+            <a href="#experience" class="nav-link">Experience</a>
+            <a href="#projects" class="nav-link">Projects</a>
+            <a href="#education" class="nav-link">Education</a>
+            <a href="#certificates" class="nav-link">Certificates</a>
+            <a href="#contact" class="nav-link">Contact</a>
         </div>
-    </nav>
+    </div>
+</nav>
 
     <!-- Hero Section -->
-    <section id="home" class="min-h-screen flex items-center justify-center relative overflow-hidden tech-grid">
-        <div class="particles" id="particles"></div>
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <img src="https://i.postimg.cc/BvFKj1dD/IMG-20250718-003331.png" alt="Emmanuel Joshua Y" class="w-40 h-40 rounded-full mx-auto mb-8 border-4 border-teal-400 glow-effect object-cover">
-            <h1 class="text-5xl md:text-7xl font-montserrat font-bold mb-4 fade-in">
-                Emmanuel Joshua Y
-            </h1>
-            <p class="text-2xl md:text-4xl text-teal-400 mb-4 fade-in">
-                <span class="typing-effect" id="typing-text"></span>
+    <section id="home" class="hero">
+        <div class="hero-text">
+            <h1>Hi, I'm Emmanuel Joshua Y</h1>
+            <p>
+                B.Tech AI & ML student passionate about turning complex data into real-world solutions
+                with strong values and ethical tech.
             </p>
-            <p class="text-xl text-gray-300 mb-8 fade-in">
-                Data Scientist | B.Tech AI/ML
-            </p>
-            <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4 fade-in">
-                <a href="#projects" class="btn-primary px-8 py-3 rounded-full font-semibold text-white">View Projects</a>
-                <a href="#contact" class="border-2 border-teal-400 px-8 py-3 rounded-full font-semibold text-teal-400 hover:bg-teal-400 hover:text-gray-900 transition-all duration-300">Get in Touch</a>
+            <div class="buttons">
+                <a href="#contact" class="btn btn-primary">Contact Me</a>
+                <a href="#projects" class="btn btn-outline">View Projects</a>
             </div>
         </div>
+        <div class="hero-image"></div>
     </section>
 
     <!-- About Section -->
-    <section id="about" class="py-20 bg-gray-800">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-4xl font-montserrat font-bold text-center mb-12 fade-in">About Me</h2>
-            <div class="grid md:grid-cols-2 gap-12">
-                <div class="slide-in-left">
-                    <p class="text-lg text-gray-300 mb-6">
-                        Passionate about leveraging AI and data science to create meaningful impact. Currently pursuing B.Tech in AI & ML at SNS College of Technology, I'm dedicated to transforming complex data into actionable insights that drive real-world solutions.
-                    </p>
-                    <p class="text-lg text-gray-300 mb-6">
-                        My journey in data science is guided by strong values and faith, believing that technology should serve humanity's greater good. As I continue to grow in this field, I remain committed to using my skills responsibly and ethically.
-                    </p>
-                    <blockquote class="border-l-4 border-teal-400 pl-6 italic text-gray-400">
+    <section id="about" class="py-16 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-12">About Me</h2>
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/3 mb-8 md:mb-0 flex justify-center">
+                    <div class="w-64 h-64 rounded-full overflow-hidden border-4 border-indigo-100 shadow-lg">
+                        <img src="https://joseselvam.neocities.org/e-port/emman2.jpg" alt="Emmanuel Joshua Y" class="w-full h-full object-cover">
+                    </div>
+                </div>
+                <div class="md:w-2/3 md:pl-12">
+                    <h3 class="text-2xl font-bold text-indigo-600 mb-4">Data scientist!</h3>
+                    <p class="text-lg mb-6">Passionate about leveraging AI and data science to create meaningful impact. Currently pursuing B.Tech in AI & ML at SNS College of Technology, I'm dedicated to transforming complex data into actionable insights that drive real-world solutions. My journey in data science is guided by strong values and faith, believing that technology should serve humanity's greater good. As I continue to grow in this field, I remain committed to using my skills responsibly and ethically.</p>
+                    <blockquote class="border-l-4 border-indigo-500 pl-4 italic mb-6">
                         "But seek ye first the kingdom of God, and his righteousness; and all these things shall be added unto you." – Matthew 6:33
                     </blockquote>
-                </div>
-                <div class="slide-in-right">
-                    <h3 class="text-2xl font-montserrat font-semibold mb-6 text-teal-400">Education</h3>
-                    <div class="relative">
-                        <div class="timeline-line absolute left-4 top-0 w-0.5 h-full"></div>
-                        <div class="relative mb-8 fade-in">
-                            <div class="absolute left-0 w-8 h-8 bg-teal-400 rounded-full flex items-center justify-center">
-                                <i class="fas fa-graduation-cap text-xs"></i>
-                            </div>
-                            <div class="ml-12">
-                                <h4 class="font-semibold text-lg">B.Tech in AI & ML</h4>
-                                <p class="text-gray-400">SNS College of Technology</p>
-                                <p class="text-sm text-gray-500">2024 – Present</p>
-                            </div>
-                        </div>
-                        <div class="relative mb-8 fade-in">
-                            <div class="absolute left-0 w-8 h-8 bg-teal-400 rounded-full flex items-center justify-center">
-                                <i class="fas fa-school text-xs"></i>
-                            </div>
-                            <div class="ml-12">
-                                <h4 class="font-semibold text-lg">High School</h4>
-                                <p class="text-gray-400">Baptist Academy</p>
-                                <p class="text-sm text-gray-500">2023 – 2024 | 87%</p>
-                            </div>
-                        </div>
-                    </div>
+                    <a href="#" class="text-indigo-600 font-medium hover:underline"></a>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Experience Section -->
-    <section id="experience" class="py-20 bg-gray-900">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-4xl font-montserrat font-bold text-center mb-12 fade-in">Experience</h2>
-            <div class="max-w-3xl mx-auto">
-                <div class="bg-gray-800 p-8 rounded-lg glow-effect fade-in">
-                    <h3 class="text-2xl font-montserrat font-semibold text-teal-400 mb-2">Data Scientist Intern</h3>
-                    <p class="text-gray-400 mb-4">Intellipaat • April 2024 – Present</p>
-                    <ul class="text-gray-300 space-y-2">
-                        <li class="flex items-start">
-                            <i class="fas fa-check-circle text-teal-400 mt-1 mr-3"></i>
-                            <span>Data preprocessing and cleaning for large-scale datasets</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check-circle text-teal-400 mt-1 mr-3"></i>
-                            <span>Machine learning model development and optimization</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check-circle text-teal-400 mt-1 mr-3"></i>
-                            <span>Collaborative team projects using Python, SQL, Pandas, TensorFlow</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check-circle text-teal-400 mt-1 mr-3"></i>
-                            <span>Data visualization and predictive analytics implementation</span>
-                        </li>
-                    </ul>
+    <section id="experience" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-12">Experience</h2>
+            <div class="max-w-3xl mx-auto bg-white rounded-xl shadow-md overflow-hidden p-6 mb-8">
+                <div class="flex flex-col md:flex-row">
+                    <div class="md:w-1/4 mb-4 md:mb-0">
+                        <h3 class="text-xl font-bold text-indigo-600">Data Scientist Intern</h3>
+                        <p class="text-gray-600">Intellipaat</p>
+                    </div>
+                    <div class="md:w-3/4">
+                        <ul class="list-disc pl-5 space-y-2">
+                            <li>Preprocessing and cleaning of large-scale datasets.</li>
+                            <li>Machine learning model development & optimization.</li>
+                            <li>Team collaboration using Python, SQL, Pandas, TensorFlow.</li>
+                            <li>Data visualization and predictive analytics.</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Skills Section -->
-    <section id="skills" class="py-20 bg-gray-800">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-4xl font-montserrat font-bold text-center mb-12 fade-in">Skills</h2>
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <div class="skill-card p-6 rounded-lg scale-in">
-                    <h3 class="text-xl font-montserrat font-semibold mb-4 text-teal-400">Languages</h3>
-                    <div class="space-y-2">
-                        <span class="inline-block bg-gray-700 px-3 py-1 rounded-full text-sm">Python</span>
-                        <span class="inline-block bg-gray-700 px-3 py-1 rounded-full text-sm">SQL</span>
-                        <span class="inline-block bg-gray-700 px-3 py-1 rounded-full text-sm">C</span>
-                    </div>
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-12">Skills</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <!-- Languages -->
+                <div class="skill-card bg-gray-50 p-6 rounded-lg shadow-md transition duration-300">
+                    <h3 class="text-xl font-bold mb-4 text-indigo-600">Languages</h3>
+                    <ul class="space-y-2">
+                        <li class="flex items-center"><i class="fab fa-python text-indigo-500 mr-2"></i> Python</li>
+                        <li class="flex items-center"><i class="fas fa-database text-indigo-500 mr-2"></i> SQL</li>
+                        <li class="flex items-center"><i class="fas fa-code text-indigo-500 mr-2"></i> C</li>
+                    </ul>
                 </div>
-                <div class="skill-card p-6 rounded-lg scale-in">
-                    <h3 class="text-xl font-montserrat font-semibold mb-4 text-teal-400">Frameworks/Libraries</h3>
-                    <div class="space-y-2">
-                        <span class="inline-block bg-gray-700 px-3 py-1 rounded-full text-sm">Pandas</span>
-                        <span class="inline-block bg-gray-700 px-3 py-1 rounded-full text-sm">NumPy</span>
-                        <span class="inline-block bg-gray-700 px-3 py-1 rounded-full text-sm">Scikit-Learn</span>
-                        <span class="inline-block bg-gray-700 px-3 py-1 rounded-full text-sm">Matplotlib</span>
-                        <span class="inline-block bg-gray-700 px-3 py-1 rounded-full text-sm">Seaborn</span>
-                    </div>
+                
+                <!-- Platforms -->
+                <div class="skill-card bg-gray-50 p-6 rounded-lg shadow-md transition duration-300">
+                    <h3 class="text-xl font-bold mb-4 text-indigo-600">Platforms</h3>
+                    <ul class="space-y-2">
+                        <li class="flex items-center"><i class="fas fa-laptop-code text-indigo-500 mr-2"></i> PyCharm</li>
+                        <li class="flex items-center"><i class="fas fa-file-code text-indigo-500 mr-2"></i> Jupyter</li>
+                        <li class="flex items-center"><i class="fas fa-code text-indigo-500 mr-2"></i> VS Code</li>
+                    </ul>
                 </div>
-                <div class="skill-card p-6 rounded-lg scale-in">
-                    <h3 class="text-xl font-montserrat font-semibold mb-4 text-teal-400">Tools</h3>
-                    <div class="space-y-2">
-                        <span class="inline-block bg-gray-700 px-3 py-1 rounded-full text-sm">Excel</span>
-                        <span class="inline-block bg-gray-700 px-3 py-1 rounded-full text-sm">PowerBI</span>
-                        <span class="inline-block bg-gray-700 px-3 py-1 rounded-full text-sm">MySQL</span>
-                        <span class="inline-block bg-gray-700 px-3 py-1 rounded-full text-sm">SQLite</span>
-                    </div>
+                
+                <!-- Tools -->
+                <div class="skill-card bg-gray-50 p-6 rounded-lg shadow-md transition duration-300">
+                    <h3 class="text-xl font-bold mb-4 text-indigo-600">Tools</h3>
+                    <ul class="space-y-2">
+                        <li class="flex items-center"><i class="fas fa-file-excel text-indigo-500 mr-2"></i> Excel</li>
+                        <li class="flex items-center"><i class="fas fa-chart-line text-indigo-500 mr-2"></i> PowerBI</li>
+                        <li class="flex items-center"><i class="fas fa-database text-indigo-500 mr-2"></i> MySQL</li>
+                        <li class="flex items-center"><i class="fas fa-database text-indigo-500 mr-2"></i> SQLite</li>
+                    </ul>
                 </div>
-                <div class="skill-card p-6 rounded-lg scale-in">
-                    <h3 class="text-xl font-montserrat font-semibold mb-4 text-teal-400">Platforms</h3>
-                    <div class="space-y-2">
-                        <span class="inline-block bg-gray-700 px-3 py-1 rounded-full text-sm">PyCharm</span>
-                        <span class="inline-block bg-gray-700 px-3 py-1 rounded-full text-sm">Jupyter</span>
-                        <span class="inline-block bg-gray-700 px-3 py-1 rounded-full text-sm">VS Code</span>
-                    </div>
-                </div>
-                <div class="skill-card p-6 rounded-lg scale-in">
-                    <h3 class="text-xl font-montserrat font-semibold mb-4 text-teal-400">Soft Skills</h3>
-                    <div class="space-y-2">
-                        <span class="inline-block bg-gray-700 px-3 py-1 rounded-full text-sm">Problem Solving</span>
-                        <span class="inline-block bg-gray-700 px-3 py-1 rounded-full text-sm">Teamwork</span>
-                        <span class="inline-block bg-gray-700 px-3 py-1 rounded-full text-sm">Communication</span>
-                        <span class="inline-block bg-gray-700 px-3 py-1 rounded-full text-sm">Typewriting</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Services Section -->
-    <section id="services" class="py-20 bg-gray-900">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-4xl font-montserrat font-bold text-center mb-12 fade-in">Services</h2>
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="text-center scale-in">
-                    <div class="w-16 h-16 bg-teal-400 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <i class="fas fa-chart-line text-2xl text-gray-900"></i>
-                    </div>
-                    <h3 class="text-xl font-montserrat font-semibold mb-2">Data Analysis</h3>
-                    <p class="text-gray-400">Uncover patterns and insights from complex datasets</p>
-                </div>
-                <div class="text-center scale-in">
-                    <div class="w-16 h-16 bg-teal-400 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <i class="fas fa-cogs text-2xl text-gray-900"></i>
-                    </div>
-                    <h3 class="text-xl font-montserrat font-semibold mb-2">Data Strategy</h3>
-                    <p class="text-gray-400">Align data initiatives with business goals</p>
-                </div>
-                <div class="text-center scale-in">
-                    <div class="w-16 h-16 bg-teal-400 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <i class="fas fa-database text-2xl text-gray-900"></i>
-                    </div>
-                    <h3 class="text-xl font-montserrat font-semibold mb-2">Data Infrastructure</h3>
-                    <p class="text-gray-400">End-to-end system planning and implementation</p>
+                
+                <!-- Frameworks -->
+                <div class="skill-card bg-gray-50 p-6 rounded-lg shadow-md transition duration-300">
+                    <h3 class="text-xl font-bold mb-4 text-indigo-600">Frameworks</h3>
+                    <ul class="space-y-2">
+                        <li class="flex items-center"><i class="fab fa-python text-indigo-500 mr-2"></i> Pandas</li>
+                        <li class="flex items-center"><i class="fab fa-python text-indigo-500 mr-2"></i> NumPy</li>
+                        <li class="flex items-center"><i class="fas fa-brain text-indigo-500 mr-2"></i> Scikit-Learn</li>
+                        <li class="flex items-center"><i class="fas fa-chart-bar text-indigo-500 mr-2"></i> Matplotlib</li>
+                        <li class="flex items-center"><i class="fas fa-chart-pie text-indigo-500 mr-2"></i> Seaborn</li>
+                    </ul>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Projects Section -->
-    <section id="projects" class="py-20 bg-gray-800">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-4xl font-montserrat font-bold text-center mb-12 fade-in">Projects</h2>
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="project-card p-6 rounded-lg scale-in">
-                    <img src="https://i.postimg.cc/BvFC82by/e0f9c0c3-9fb9-4c0e-b067-bd9183aa71ce.png" alt="Walmart Sales Prediction" class="w-full h-48 object-cover rounded-lg mb-4">
-                    <h3 class="text-xl font-montserrat font-semibold mb-2">Walmart Sales Prediction</h3>
-                    <p class="text-gray-400 mb-4">Forecasting sales using ARIMA, XGBoost, and LSTM for inventory management and strategic planning.</p>
-                    <a href="#" class="text-teal-400 hover:text-teal-300 flex items-center">
-                        View Project <i class="fas fa-external-link-alt ml-2"></i>
-                    </a>
+    <section id="projects" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-12">Projects</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project 1 -->
+                <div class="project-card bg-white rounded-lg overflow-hidden shadow-md relative">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://joseselvam.neocities.org/e-port/wall2.jpg" alt="Walmart Sales Prediction" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Walmart Sales Prediction</h3>
+                        <p class="text-gray-600 mb-4">Forecasting sales using ARIMA, XGBoost, and LSTM for inventory management and strategic planning.</p>
+                        <a href="https://github.com/Emman-code/Emman-Projects/blob/main/Wallmart_Emman.ipynb" class="text-indigo-600 font-medium hover:underline">View Project</a>
+                    </div>
                 </div>
-                <div class="project-card p-6 rounded-lg scale-in">
-                    <img src="https://i.postimg.cc/FRQV01JK/fd902624-7916-4d41-b82a-4c7e674ed208.png" alt="COVID-19 Trend Analysis" class="w-full h-48 object-cover rounded-lg mb-4">
-                    <h3 class="text-xl font-montserrat font-semibold mb-2">COVID-19 Trend Analysis</h3>
-                    <p class="text-gray-400 mb-4">Data-driven analysis of pandemic trends with interactive visualizations and cross-country comparisons.</p>
-                    <a href="#" class="text-teal-400 hover:text-teal-300 flex items-center">
-                        View Project <i class="fas fa-external-link-alt ml-2"></i>
-                    </a>
+                
+                <!-- Project 2 -->
+                <div class="project-card bg-white rounded-lg overflow-hidden shadow-md relative">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://joseselvam.neocities.org/e-port/covid.jpg" alt="COVID-19 Trend Analysis" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">COVID-19 Trend Analysis</h3>
+                        <p class="text-gray-600 mb-4">Data-driven analysis of pandemic trends with interactive visualizations and cross-country comparisons.</p>
+                        <a href="https://github.com/Emman-code/Emman-Projects/blob/main/Covid19_Emman.ipynb" class="text-indigo-600 font-medium hover:underline">View Project</a>
+                    </div>
                 </div>
-                <div class="project-card p-6 rounded-lg scale-in">
-                    <img src="https://i.postimg.cc/qvSLM1Jy/ae82d900-4396-4d38-b981-bebf8f557ec8.png" alt="Customer Churn" class="w-full h-48 object-cover rounded-lg mb-4">
-                    <h3 class="text-xl font-montserrat font-semibold mb-2">Customer Churn Prediction</h3>
-                    <p class="text-gray-400 mb-4">BiLSTM-CNN model for customer retention strategy using deep learning techniques.</p>
-                    <a href="#" class="text-teal-400 hover:text-teal-300 flex items-center">
-                        View Project <i class="fas fa-external-link-alt ml-2"></i>
-                    </a>
+                
+                <!-- Project 3 -->
+                <div class="project-card bg-white rounded-lg overflow-hidden shadow-md relative">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://joseselvam.neocities.org/e-port/cus2.jpg" alt="Customer Churn Prediction" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Customer Churn Prediction</h3>
+                        <p class="text-gray-600 mb-4">BiLSTM-CNN model for customer retention strategy using deep learning techniques.</p>
+                        <a href="https://huggingface.co/spaces/EmmanuelJoshua/Customer_churn_Prediction" class="text-indigo-600 font-medium hover:underline">View Project</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="py-16 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-12">Education</h2>
+            <div class="max-w-4xl mx-auto space-y-8">
+                <!-- Undergraduate -->
+                <div class="bg-gray-50 p-6 rounded-lg shadow-md">
+                    <h3 class="text-xl font-bold text-indigo-600 mb-2">UNDERGRADUATE</h3>
+                    <p class="font-medium mb-1">INSTITUTION: SNS College of Technology</p>
+                    <p class="mb-1">COURSE: Artificial Intelligence And Machine Learning</p>
+                    <p class="mb-1">YEAR: 2024 - Present</p>
+                    <p>CGPA: 8.73</p>
+                </div>
+                
+                <!-- Higher Secondary -->
+                <div class="bg-gray-50 p-6 rounded-lg shadow-md">
+                    <h3 class="text-xl font-bold text-indigo-600 mb-2">HIGHER SECONDARY EDUCATION</h3>
+                    <p class="font-medium mb-1">INSTITUTION: Baptist Academy</p>
+                    <p class="mb-1">YEAR: 2022-2024</p>
+                    <p>PERCENTAGE: 87%</p>
+                </div>
+                
+                <!-- Secondary -->
+                <div class="bg-gray-50 p-6 rounded-lg shadow-md">
+                    <h3 class="text-xl font-bold text-indigo-600 mb-2">SECONDARY EDUCATION</h3>
+                    <p class="font-medium mb-1">INSTITUTION: Baptist Academy</p>
+                    <p class="mb-1">YEAR: 2021-2022</p>
+                    <p>PERCENTAGE: 83%</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Certificates Section -->
-    <section id="certificates" class="py-20 bg-gray-900">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-4xl font-montserrat font-bold text-center mb-12 fade-in">Certificates</h2>
-            <div class="grid md:grid-cols-2 gap-8">
-                <!-- Certificate 1 -->
-                <div class="certificate-card bg-gray-800 p-6 rounded-lg overflow-hidden relative slide-in-left">
-                    <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-teal-400 to-blue-500"></div>
-                    <h3 class="text-xl font-montserrat font-semibold mb-2 text-teal-400">EXECUTIVE POST GRADUATE CERTIFICATION IN DATA SCIENCE AND AI</h3>
-                    <p class="text-gray-400 mb-4">iHUB Divyasampark at IIT Roorkee FEBRUARY 2025</p>
-                    <ul class="text-gray-300 space-y-2 mb-6">
-                        <li class="flex items-start">
-                            <i class="fas fa-check-circle text-teal-400 mt-1 mr-3"></i>
-                            <span>Developed advanced expertise in data science, machine learning, and AI-driven analytics</span>
-                        </li>
-                    </ul>
-                    <a href="#" class="btn-primary px-6 py-2 rounded-lg font-semibold text-white inline-block">View Certificate</a>
-                </div>
 
-                <!-- Certificate 2 -->
-                <div class="certificate-card bg-gray-800 p-6 rounded-lg overflow-hidden relative slide-in-right">
-                    <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-500 to-teal-400"></div>
-                    <h3 class="text-xl font-montserrat font-semibold mb-2 text-teal-400">DATA SCIENCE COURSE</h3>
-                    <p class="text-gray-400 mb-4">Intellipaat April 2025</p>
-                    <ul class="text-gray-300 space-y-2 mb-6">
-                        <li class="flex items-start">
-                            <i class="fas fa-check-circle text-teal-400 mt-1 mr-3"></i>
-                            <span>Gained hands-on experience in machine learning, data analysis, and predictive modelling</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check-circle text-teal-400 mt-1 mr-3"></i>
-                            <span>Covered key concepts like data preprocessing, feature engineering, and model evaluation</span>
-                        </li>
-                    </ul>
-                    <a href="#" class="btn-primary px-6 py-2 rounded-lg font-semibold text-white inline-block">View Certificate</a>
-                </div>
-
-                <!-- Certificate 3 -->
-                <div class="certificate-card bg-gray-800 p-6 rounded-lg overflow-hidden relative slide-in-left">
-                    <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-teal-400 to-blue-500"></div>
-                    <h3 class="text-xl font-montserrat font-semibold mb-2 text-teal-400">SQL COURSE</h3>
-                    <p class="text-gray-400 mb-4">Intellipaat July 2024</p>
-                    <ul class="text-gray-300 space-y-2 mb-6">
-                        <li class="flex items-start">
-                            <i class="fas fa-check-circle text-teal-400 mt-1 mr-3"></i>
-                            <span>Mastered database querying, data manipulation, and optimization techniques using SQL</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check-circle text-teal-400 mt-1 mr-3"></i>
-                            <span>Worked with relational databases, writing efficient queries</span>
-                        </li>
-                    </ul>
-                    <a href="#" class="btn-primary px-6 py-2 rounded-lg font-semibold text-white inline-block">View Certificate</a>
-                </div>
-
-                <!-- Certificate 4 -->
-                <div class="certificate-card bg-gray-800 p-6 rounded-lg overflow-hidden relative slide-in-right">
-                    <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-500 to-teal-400"></div>
-                    <h3 class="text-xl font-montserrat font-semibold mb-2 text-teal-400">ENTERPRISE DESIGN THINKING – TEAM ESSENTIALS FOR AI</h3>
-                    <p class="text-gray-400 mb-4">IBM September 2024</p>
-                    <ul class="text-gray-300 space-y-2 mb-6">
-                        <li class="flex items-start">
-                            <i class="fas fa-check-circle text-teal-400 mt-1 mr-3"></i>
-                            <span>Developed a human-centered approach to AI solutions</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check-circle text-teal-400 mt-1 mr-3"></i>
-                            <span>Focused on collaborative problem-solving, innovation strategies, and AI ethics</span>
-                        </li>
-                    </ul>
-                    <a href="#" class="btn-primary px-6 py-2 rounded-lg font-semibold text-white inline-block">View Certificate</a>
-                </div>
+<section id="certificates" class="py-20 bg-gray-100">
+    <div class="container mx-auto">
+        <h2 class="text-4xl font-bold mb-6">Certificates</h2>
+<section class="py-16 bg-gray-50">
+  <div class="container mx-auto px-6">
+    <h2 class="text-3xl font-bold text-center mb-12">Certificates</h2>
+    <div class="relative">
+      
+      <!-- Slider Container -->
+      <div id="certificate-slider" class="flex transition-transform duration-500 ease-in-out touch-pan-x">
+        
+        <!-- Certificate 1 -->
+        <div class="flex-shrink-0 w-full sm:w-1/2 lg:w-1/3 px-3">
+          <div class="bg-white rounded-xl shadow-md overflow-hidden">
+            <img src="https://joseselvam.neocities.org/e-port/post.jpg" class="w-full h-48 object-cover" alt="Certificate 1">
+            <div class="p-6">
+              <h3 class="text-lg font-bold text-indigo-600 mb-2">EXECUTIVE POST GRADUATE CERTIFICATION IN DATA SCIENCE AND AI</h3>
+              <p class="font-medium mb-1">Issued By: iHUB Divyasampark at IIT Roorkee</p>
+              <p class="text-sm text-gray-500 mb-4">Year: FEBRUARY 2025</p>
+              <a href="https://joseselvam.neocities.org/e-port/post.jpg" class="text-indigo-600 font-medium hover:underline">View Certificate</a>
             </div>
+          </div>
         </div>
-    </section>
+
+        <!-- Certificate 2 -->
+        <div class="flex-shrink-0 w-full sm:w-1/2 lg:w-1/3 px-3">
+          <div class="bg-white rounded-xl shadow-md overflow-hidden">
+            <img src="https://i.postimg.cc/fbM0gnWV/Data-science-course-certificate.png" class="w-full h-48 object-cover" alt="Certificate 2">
+            <div class="p-6">
+              <h3 class="text-lg font-bold text-indigo-600 mb-2">DATA SCIENCE ARCHITECT MASTERS PROGRAM
+</h3>
+              <p class="font-medium mb-1">Issued By: Intellipaat</p>
+              <p class="text-sm text-gray-500 mb-4">Issue Date: July, 2025</p>
+              <a href="https://lms.intellipaat.com/certificate-link/?Yz05Mzk1OSZ1PTI1MjAxNiZleHQ9MQ==" class="text-indigo-600 font-medium hover:underline">View Certificate</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Certificate 3 -->
+        <div class="flex-shrink-0 w-full sm:w-1/2 lg:w-1/3 px-3">
+          <div class="bg-white rounded-xl shadow-md overflow-hidden">
+            <img src="https://i.postimg.cc/QNFSq5nR/image.png" class="w-full h-48 object-cover" alt="Certificate 3">
+            <div class="p-6">
+              <h3 class="text-lg font-bold text-indigo-600 mb-2">ENTERPRISE DESIGN THINKING - Team Essentials for AI</h3>
+              <p class="font-medium mb-1">Issued By: IBM</p>
+              <p class="text-sm text-gray-500 mb-4">Issued: Nov 2024</p>
+              <a href="https://www.credly.com/badges/42dd3320-2e9b-4bf2-9bed-85d1ff95b1de/linked_in_profile" class="text-indigo-600 font-medium hover:underline">View Certificate</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Add More Certificates Here -->
+        <div class="flex-shrink-0 w-full sm:w-1/2 lg:w-1/3 px-3">
+          <div class="bg-white rounded-xl shadow-md overflow-hidden">
+            <img src="https://i.postimg.cc/MTN7LPrg/image.png" class="w-full h-48 object-cover" alt="Certificate 4">
+            <div class="p-6">
+              <h3 class="text-lg font-bold text-indigo-600 mb-2">SQL COURSE</h3>
+              <p class="font-medium mb-1">Issued By: Intellipaat</p>
+              <p class="text-sm text-gray-500 mb-4">Issued: July 2024</p>
+              <a href="https://lms.intellipaat.com/certificate-link/?Yz1jdXMtOTEzMTY3JnU9MjUyMDE2JmV4dD0x" class="text-indigo-600 font-medium hover:underline">View Certificate</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Navigation Buttons -->
+      <button id="prev-btn" class="hidden lg:block absolute top-1/2 -translate-y-1/2 left-0 bg-indigo-600 text-white px-3 py-2 rounded-full shadow hover:bg-indigo-700">&larr;</button>
+      <button id="next-btn" class="hidden lg:block absolute top-1/2 -translate-y-1/2 right-0 bg-indigo-600 text-white px-3 py-2 rounded-full shadow hover:bg-indigo-700">&rarr;</button>
+    </div>
+  </div>
+</section>
+
+<script>
+let currentIndex = 0;
+const slider = document.getElementById("certificate-slider");
+const totalItems = slider.children.length;
+let itemsPerView = window.innerWidth >= 1024 ? 3 : (window.innerWidth >= 640 ? 2 : 1);
+
+const updateSlider = () => {
+  const itemWidth = slider.children[0].offsetWidth;
+  slider.style.transform = `translateX(-${currentIndex * itemWidth}px)`;
+};
+
+document.getElementById("next-btn").addEventListener("click", () => {
+  if (currentIndex < totalItems - itemsPerView) {
+    currentIndex++;
+    updateSlider();
+  }
+});
+
+document.getElementById("prev-btn").addEventListener("click", () => {
+  if (currentIndex > 0) {
+    currentIndex--;
+    updateSlider();
+  }
+});
+
+window.addEventListener("resize", () => {
+  itemsPerView = window.innerWidth >= 1024 ? 3 : (window.innerWidth >= 640 ? 2 : 1);
+  updateSlider();
+});
+
+// Swipe for mobile
+let startX = 0;
+slider.addEventListener("touchstart", e => {
+  startX = e.touches[0].clientX;
+});
+slider.addEventListener("touchend", e => {
+  const endX = e.changedTouches[0].clientX;
+  if (startX - endX > 50 && currentIndex < totalItems - itemsPerView) {
+    currentIndex++;
+  } else if (endX - startX > 50 && currentIndex > 0) {
+    currentIndex--;
+  }
+  updateSlider();
+});
+</script>
+
+
+
 
     <!-- Contact Section -->
-    <section id="contact" class="py-20 bg-gray-900">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-4xl font-montserrat font-bold text-center mb-12 fade-in">Get in Touch</h2>
-            <div class="grid md:grid-cols-2 gap-12">
-                <div class="slide-in-left">
-                    <h3 class="text-2xl font-montserrat font-semibold mb-6 text-teal-400">Contact Information</h3>
-                    <div class="space-y-4">
-                        <div class="flex items-center">
-                            <i class="fas fa-envelope text-teal-400 text-xl mr-4"></i>
-                            <a href="mailto:emman.cnr@gmail.com" class="text-gray-300 hover:text-teal-400">emman.cnr@gmail.com</a>
-                        </div>
-                        <div class="flex items-center">
-                            <i class="fas fa-phone text-teal-400 text-xl mr-4"></i>
-                            <a href="tel:+919597321862" class="text-gray-300 hover:text-teal-400">+91 9597321862</a>
-                        </div>
-                        <div class="flex items-center">
-                            <i class="fab fa-linkedin text-teal-400 text-xl mr-4"></i>
-                            <a href="https://linkedin.com/in/emmanuel-joshua-y" class="text-gray-300 hover:text-teal-400">LinkedIn Profile</a>
-                        </div>
-                        <div class="flex items-center">
-                            <i class="fab fa-github text-teal-400 text-xl mr-4"></i>
-                            <a href="https://github.com/emmanjoshua" class="text-gray-300 hover:text-teal-400">GitHub Profile</a>
-                        </div>
+    <!-- Contact Section -->
+<section id="contact" class="py-16 bg-white">
+    <div class="container mx-auto px-6">
+        <h2 class="text-3xl font-bold text-center mb-12">Get In Touch</h2>
+        <div class="max-w-2xl mx-auto">
+            <form id="contact-form" class="space-y-6">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <label for="name" class="block mb-2 font-medium">Name</label>
+                        <input type="text" id="name" name="user_name" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                    </div>
+                    <div>
+                        <label for="email" class="block mb-2 font-medium">Email</label>
+                        <input type="email" id="email" name="user_email" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500">
                     </div>
                 </div>
-                <div class="slide-in-right">
-                    <form id="contact-form" class="space-y-6">
-                        <div>
-                            <label class="block text-sm font-medium mb-2">Name</label>
-                            <input type="text" id="name" name="from_name" required class="form-input w-full px-4 py-2 rounded-lg bg-gray-800 text-white">
-                        </div>
-                        <div>
-                            <label class="block text-sm font-medium mb-2">Email</label>
-                            <input type="email" id="email" name="from_email" required class="form-input w-full px-4 py-2 rounded-lg bg-gray-800 text-white">
-                        </div>
-                        <div>
-                            <label class="block text-sm font-medium mb-2">Message</label>
-                            <textarea id="message" name="message" rows="4" required class="form-input w-full px-4 py-2 rounded-lg bg-gray-800 text-white resize-none"></textarea>
-                        </div>
-                        <button type="submit" class="btn-primary w-full py-3 rounded-lg font-semibold text-white">
-                            Send Message
-                        </button>
-                    </form>
-                    <div id="success-message" class="hidden mt-4 p-4 bg-green-500/20 text-green-400 rounded-lg">
-                        Message sent successfully!
-                    </div>
-                    <div id="error-message" class="hidden mt-4 p-4 bg-red-500/20 text-red-400 rounded-lg">
-                        Failed to send message. Please try again.
-                    </div>
+                <div>
+                    <label for="subject" class="block mb-2 font-medium">Subject</label>
+                    <input type="text" id="subject" name="subject" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500">
                 </div>
-            </div>
+                <div>
+                    <label for="message" class="block mb-2 font-medium">Message</label>
+                    <textarea id="message" name="message" rows="5" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"></textarea>
+                </div>
+                <button type="submit" class="w-full bg-indigo-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-indigo-700 transition">
+                    Send Message
+                </button>
+            </form>
         </div>
-    </section>
+    </div>
+</section>
+
+<!-- EmailJS Script -->
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+<script>
+    (function() {
+        emailjs.init("IAXFnm0pMLQPYD3Kc"); // Public Key
+    })();
+
+    document.getElementById('contact-form').addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        emailjs.sendForm('service_o7mi0ds', 'template_ga6beui', this)
+            .then(function() {
+                alert('Message Sent Successfully!');
+                document.getElementById('contact-form').reset();
+            }, function(error) {
+                console.log('FAILED...', error);
+                alert('Failed to send message. Please try again later.');
+            });
+    });
+</script>
+
 
     <!-- Footer -->
-    <footer class="bg-gray-800 py-8 text-center">
-        <p class="text-gray-400">&copy; 2024 Emmanuel Joshua Y. All rights reserved.</p>
+    <footer class="bg-gray-900 text-white py-8">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <a href="#" class="text-2xl font-bold text-white">Emmanuel<span class="text-indigo-400">.</span></a>
+                    <p class="mt-2 text-gray-400">Transforming data into solutions.</p>
+                </div>
+                <div class="flex space-x-6">
+                    <a href="https://github.com/Emman-code" class="text-gray-400 hover:text-white transition"><i class="fab fa-github text-xl"></i></a>
+                    <a href="https://www.linkedin.com/in/emmanuel-joshua-ej/" class="text-gray-400 hover:text-white transition"><i class="fab fa-linkedin text-xl"></i></a>
+                    <a href="https://x.com/EmmanCnr" class="text-gray-400 hover:text-white transition"><i class="fab fa-twitter text-xl"></i></a>
+                    <a href="https://www.instagram.com/__.yoix.__/" class="text-gray-400 hover:text-white transition"><i class="fab fa-instagram text-xl"></i></a>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2025 Emmanuel Joshua Y. All rights reserved.</p>
+            </div>
+        </div>
     </footer>
 
     <script>
+        // Parallax effect for floating elements
+        document.addEventListener('mousemove', (e) => {
+            const floatingElements = document.querySelectorAll('.animate-float, .animate-float-delayed');
+            floatingElements.forEach(element => {
+                const speed = parseFloat(element.getAttribute('data-speed')) || 0.1;
+                const x = (window.innerWidth - e.pageX * speed) / 100;
+                const y = (window.innerHeight - e.pageY * speed) / 100;
+                element.style.transform = `translateX(${x}px) translateY(${y}px)`;
+            });
+        });
+
         // Mobile menu toggle
-        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const menuBtn = document.getElementById('menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
-        const mobileLinks = document.querySelectorAll('.mobile-link');
-
-        mobileMenuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('active');
+        
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
         });
-
-        mobileLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.remove('active');
-            });
-        });
-
-        // Typing effect
-        const text = "Analyzing Today for a Better Tomorrow!";
-        let index = 0;
-        const typingElement = document.getElementById('typing-text');
-
-        function type() {
-            if (index < text.length) {
-                typingElement.textContent += text.charAt(index);
-                index++;
-                setTimeout(type, 100);
-            }
-        }
-
-        type();
-
-        // Particle animation
-        function createParticles() {
-            const container = document.getElementById('particles');
-            for (let i = 0; i < 50; i++) {
-                const particle = document.createElement('div');
-                particle.className = 'particle';
-                particle.style.left = Math.random() * 100 + '%';
-                particle.style.animationDelay = Math.random() * 6 + 's';
-                particle.style.animationDuration = (Math.random() * 3 + 3) + 's';
-                container.appendChild(particle);
-            }
-        }
-
-        createParticles();
-
-        // GSAP Animations
-        gsap.registerPlugin(ScrollTrigger);
-
-        // Fade in animations
-        gsap.utils.toArray('.fade-in').forEach(element => {
-            gsap.fromTo(element, {
-                opacity: 0,
-                y: 30
-            }, {
-                opacity: 1,
-                y: 0,
-                duration: 1,
-                scrollTrigger: {
-                    trigger: element,
-                    start: 'top 80%',
-                    end: 'bottom 20%',
-                    toggleActions: 'play none none reverse'
-                }
-            });
-        });
-
-        // Slide in left animations
-        gsap.utils.toArray('.slide-in-left').forEach(element => {
-            gsap.fromTo(element, {
-                opacity: 0,
-                x: -50
-            }, {
-                opacity: 1,
-                x: 0,
-                duration: 1,
-                scrollTrigger: {
-                    trigger: element,
-                    start: 'top 80%',
-                    end: 'bottom 20%',
-                    toggleActions: 'play none none reverse'
-                }
-            });
-        });
-
-        // Slide in right animations
-        gsap.utils.toArray('.slide-in-right').forEach(element => {
-            gsap.fromTo(element, {
-                opacity: 0,
-                x: 50
-            }, {
-                opacity: 1,
-                x: 0,
-                duration: 1,
-                scrollTrigger: {
-                    trigger: element,
-                    start: 'top 80%',
-                    end: 'bottom 20%',
-                    toggleActions: 'play none none reverse'
-                }
-            });
-        });
-
-        // Scale in animations
-        gsap.utils.toArray('.scale-in').forEach(element => {
-            gsap.fromTo(element, {
-                opacity: 0,
-                scale: 0.9
-            }, {
-                opacity: 1,
-                scale: 1,
-                duration: 0.8,
-                scrollTrigger: {
-                    trigger: element,
-                    start: 'top 80%',
-                    end: 'bottom 20%',
-                    toggleActions: 'play none none reverse'
-                }
-            });
-        });
-
-        // Initialize EmailJS
-        (function() {
-            emailjs.init('IAXFnm0pMLQPYD3Kc');
-        })();
-
-        // Form submission
-        document.getElementById('contact-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const successMsg = document.getElementById('success-message');
-            const errorMsg = document.getElementById('error-message');
-            
-            // Hide any previous messages
-            successMsg.classList.add('hidden');
-            errorMsg.classList.add('hidden');
-            
-            emailjs.sendForm('service_qsfpunh', 'template_ga6beui', this)
-                .then(() => {
-                    // Show success message
-                    successMsg.classList.remove('hidden');
-                    // Reset form
-                    this.reset();
-                    // Hide success message after 5 seconds
-                    setTimeout(() => {
-                        successMsg.classList.add('hidden');
-                    }, 5000);
-                }, (error) => {
-                    // Show error message
-                    errorMsg.classList.remove('hidden');
-                    console.error('Failed to send message:', error);
-                });
-        });
-
-        // Smooth scroll for navigation links
+        
+        // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                window.scrollTo({
+                    top: targetElement.offsetTop - 80,
+                    behavior: 'smooth'
+                });
+                
+                // Close mobile menu if open
+                if (!mobileMenu.classList.contains('hidden')) {
+                    mobileMenu.classList.add('hidden');
+                }
+                
+                // Update active nav link
+                document.querySelectorAll('.nav-link').forEach(link => {
+                    link.classList.remove('active');
+                });
+                this.classList.add('active');
+            });
+        });
+        
+        // Update active nav link on scroll
+        window.addEventListener('scroll', () => {
+            const scrollPosition = window.scrollY;
+            
+            document.querySelectorAll('section').forEach(section => {
+                const sectionTop = section.offsetTop - 100;
+                const sectionHeight = section.offsetHeight;
+                const sectionId = section.getAttribute('id');
+                
+                if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                    document.querySelectorAll('.nav-link').forEach(link => {
+                        link.classList.remove('active');
+                        if (link.getAttribute('href') === `#${sectionId}`) {
+                            link.classList.add('active');
+                        }
                     });
                 }
             });
         });
+
+        // Scroll reveal animation for hero
+        const io = new IntersectionObserver((entries)=>{
+            entries.forEach(e => {
+                if (e.isIntersecting) e.target.classList.add('is-visible');
+            });
+        }, {threshold: 0.2});
+        document.querySelectorAll('.reveal').forEach(el => io.observe(el));
     </script>
-</body>
+<p style="border-radius: 8px; text-align: center; font-size: 12px; color: #fff; margin-top: 16px;position: fixed; left: 8px; bottom: 8px; z-index: 10; background: rgba(0, 0, 0, 0.8); padding: 4px 8px;">Made with <img src="https://enzostvs-deepsite.hf.space/logo.svg" alt="DeepSite Logo" style="width: 16px; height: 16px; vertical-align: middle;display:inline-block;margin-right:3px;filter:brightness(0) invert(1);"><a href="https://enzostvs-deepsite.hf.space" style="color: #fff;text-decoration: underline;" target="_blank" >DeepSite</a> - 🧬 <a href="https://enzostvs-deepsite.hf.space?remix=Emman-Code/portfolio-emman" style="color: #fff;text-decoration: underline;" target="_blank" >Remix</a></p></body>
 </html>
